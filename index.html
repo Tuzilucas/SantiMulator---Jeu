@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#17141f" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Santi" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="SantiMulator — une journée dans la peau de Santi, informaticien. « Ah, juste cinq minutes, j’arrive. »" />
+    <title>SantiMulator</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect x='4' y='1' width='8' height='1' fill='%232a2231'/%3E%3Crect x='3' y='2' width='10' height='7' fill='%23e6ad85'/%3E%3Crect x='3' y='8' width='10' height='3' fill='%23a59d93'/%3E%3Crect x='5' y='5' width='1' height='2' fill='%232a2231'/%3E%3Crect x='10' y='5' width='1' height='2' fill='%232a2231'/%3E%3Crect x='2' y='11' width='12' height='5' fill='%234f87c9'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-QvE-YOM4.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CnwIUyx8.css">
+  </head>
+  <body>
+    <div id="app">
+      <header id="hud" class="hud" aria-label="Tableau de bord">
+        <div class="hud-block hud-clock">
+          <span class="hud-day">Lundi</span>
+          <span id="hud-time" class="lcd">08:30</span>
+          <span class="hud-progress" aria-hidden="true"><span id="hud-progress-bar"></span></span>
+        </div>
+        <div class="hud-block hud-zen" title="Sérénité de Santi">
+          <span class="hud-label">Sérénité</span>
+          <span class="zen-bar" role="meter" aria-label="Sérénité" aria-valuemin="0" aria-valuemax="100" id="zen-meter"><span id="zen-fill"></span></span>
+        </div>
+        <div class="hud-block hud-stats">
+          <span class="stat" title="Points de flegme"><span class="stat-icon" aria-hidden="true">✦</span><span id="hud-score">0</span></span>
+          <span class="stat" title="Mails en attente"><span class="stat-icon" aria-hidden="true">✉</span><span id="hud-mail">0</span></span>
+          <span class="stat stat-missed" title="Appels manqués"><span class="stat-icon" aria-hidden="true">☎</span><span id="hud-missed">0</span></span>
+        </div>
+        <div class="hud-block hud-buttons">
+          <button id="btn-mute" class="icon-btn" type="button" aria-label="Couper le son" title="Son (M)">♪</button>
+          <button id="btn-pause" class="icon-btn" type="button" aria-label="Pause" title="Pause (Échap)">❚❚</button>
+        </div>
+      </header>
+
+      <main id="stage" class="stage">
+        <canvas id="world" aria-label="Le bureau de Santi"></canvas>
+        <div id="overlay" class="overlay" aria-hidden="true">
+          <div id="bubble" class="bubble hidden"></div>
+          <div id="tooltip" class="tooltip hidden"></div>
+        </div>
+        <div id="prompt" class="prompt hidden" aria-live="polite"></div>
+
+        <section id="screen-title" class="screen" aria-labelledby="title-logo">
+          <div class="card title-card">
+            <canvas id="title-santi" class="title-santi" width="20" height="32" aria-hidden="true"></canvas>
+            <div>
+              <h1 id="title-logo" class="logo">Santi<span>Mulator</span></h1>
+              <p class="tagline">« Ah, juste cinq minutes, j’arrive. »</p>
+            </div>
+            <ul class="rules">
+              <li><b>Le téléphone sonne ?</b> Décroche, et promets d’arriver dans cinq minutes. Toujours cinq. Jamais deux fois la même formule à la même personne&nbsp;: ils s’en souviennent.</li>
+              <li><b>Les mails s’empilent ?</b> Une réponse sèche, courte et à propos. Moins il y a de mots, mieux c’est.</li>
+              <li><b>La sérénité baisse</b> quand ça sonne et que la boîte déborde. Le café et le ronron de la salle serveur la font remonter.</li>
+              <li><b>Tiens jusqu’à 17 h 30.</b></li>
+            </ul>
+            <p class="controls controls-touch">Touchez le sol pour marcher, un objet pour l’utiliser. Les gros boutons d’action font le reste.</p>
+            <p class="controls controls-keys"><kbd>ZQSD</kbd>/<kbd>WASD</kbd>/flèches ou clic pour marcher · <kbd>E</kbd> ou <kbd>Espace</kbd> pour agir · <kbd>1</kbd>–<kbd>4</kbd> pour répondre · <kbd>Échap</kbd> pause</p>
+            <button id="btn-start" class="btn btn-primary" type="button">Commencer la journée</button>
+            <p id="best" class="best"></p>
+          </div>
+        </section>
+
+        <section id="screen-pause" class="screen hidden" aria-labelledby="pause-title">
+          <div class="card pause-card">
+            <h2 id="pause-title">Pause</h2>
+            <p class="muted">Le temps s’est arrêté. Même le téléphone retient son souffle.</p>
+            <div class="stack">
+              <button id="btn-resume" class="btn btn-primary" type="button">Reprendre</button>
+              <button id="btn-restart" class="btn" type="button">Recommencer la journée</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-end" class="screen hidden" aria-labelledby="end-title">
+          <div class="card end-card">
+            <p class="end-kicker" id="end-kicker">Rapport de fin de journée</p>
+            <h2 id="end-title" class="end-rank"></h2>
+            <p id="end-comment" class="muted"></p>
+            <p class="end-score"><span id="end-score">0</span> <small>points de flegme</small></p>
+            <dl id="end-stats" class="end-stats"></dl>
+            <p id="end-epilogue" class="end-epilogue"></p>
+            <button id="btn-again" class="btn btn-primary" type="button">Nouvelle journée</button>
+          </div>
+        </section>
+      </main>
+
+      <nav id="actions" class="actions hidden" aria-label="Actions">
+        <button id="ring-banner" class="act act-answer ring-banner hidden" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /><path class="led" d="M4 8h1v1H4zM7 8h1v1H7z" /></svg>
+          <span class="act-text"><span class="act-label">Décrocher</span><small id="ring-caller" class="act-sub"></small></span>
+          <kbd class="act-key">E</kbd>
+        </button>
+        <div id="phone-idle" class="act act-idle" aria-hidden="true">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg>
+          <span class="act-text"><span class="act-label">Téléphone</span><small class="act-sub">Calme… pour l’instant.</small></span>
+        </div>
+        <button id="act-mail" class="act" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v8H1zm1 1v1h1v1h1v1h1v1h2V6h1V5h1V4h1V3zm0 3v3h8V6H9v1H8v1H4V7H3V6z" fill-rule="evenodd" /></svg>
+          <span class="act-text"><span class="act-label">Mails</span><small id="act-mail-sub" class="act-sub"></small></span>
+          <span id="act-mail-badge" class="act-badge hidden"></span>
+        </button>
+        <button id="act-coffee" class="act" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 1h1v2H4zM6 1h1v2H6zM2 4h7v1h2v3H9v1H8v1H3V9H2zm7 2v1h1V6zM1 11h10v1H1z" fill-rule="evenodd" /></svg>
+          <span class="act-text"><span class="act-label">Café</span><small id="act-coffee-sub" class="act-sub"></small></span>
+        </button>
+        <button id="act-server" class="act" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h8v10H2zm1 1v2h6V2zm0 3v2h6V5zm0 3v2h6V8z" fill-rule="evenodd" /><path class="led" d="M7 2h1v1H7zM7 5h1v1H7zM7 8h1v1H7z" /></svg>
+          <span class="act-text"><span class="act-label">Serveurs</span><small id="act-server-sub" class="act-sub"></small></span>
+        </button>
+      </nav>
+
+      <div id="toasts" class="toasts" aria-live="polite"></div>
+
+      <section id="phone" class="panel phone hidden" role="dialog" aria-modal="false" aria-labelledby="phone-caller">
+        <div class="phone-lcd">
+          <span class="lcd-icon" aria-hidden="true">☎</span>
+          <span id="phone-caller" class="phone-caller"></span>
+          <span id="phone-meta" class="phone-meta"></span>
+        </div>
+        <div id="phone-log" class="phone-log"></div>
+        <div id="phone-choices" class="phone-choices"></div>
+      </section>
+
+      <section id="mail" class="panel mail hidden" role="dialog" aria-modal="false" aria-labelledby="mail-title">
+        <div class="win-bar">
+          <button id="mail-back" class="win-back hidden" type="button" aria-label="Retour à la boîte de réception">‹ Boîte</button>
+          <span id="mail-title" class="win-title">Messagerie — santi@entreprise.fr</span>
+          <button id="mail-close" class="win-close" type="button" aria-label="Fermer la messagerie">✕</button>
+        </div>
+        <div id="mail-ring" class="mail-ring hidden"></div>
+        <div class="mail-body">
+          <ul id="mail-list" class="mail-list" aria-label="Boîte de réception"></ul>
+          <article id="mail-read" class="mail-read"></article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
