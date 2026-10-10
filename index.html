@@ -16,14 +16,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-DFxNIm_u.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BpBW7m5Z.css">
+    <script type="module" crossorigin src="./assets/index-CKLAIr6A.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BX6QYlt0.css">
   </head>
   <body>
     <div id="app">
       <header id="hud" class="hud" aria-label="Tableau de bord">
         <div class="hud-block hud-clock">
-          <span class="hud-day">Lundi</span>
+          <span id="hud-day" class="hud-day">Lundi</span><span id="hud-day-short" class="hud-day hud-day-short" aria-hidden="true">Lun.</span>
           <span id="hud-time" class="lcd">08:30</span>
           <span class="hud-progress" aria-hidden="true"><span id="hud-progress-bar"></span></span>
         </div>
@@ -37,6 +37,7 @@
           <span class="stat stat-missed" title="Appels manqués"><span class="stat-icon" aria-hidden="true">☎</span><span id="hud-missed">0</span></span>
         </div>
         <div class="hud-block hud-buttons">
+          <button id="btn-skills" class="icon-btn hud-skills" type="button" aria-label="Compétences" title="Compétences (C)"><svg class="hud-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h7v1h1v9H3v-1H2zm2 2v1h4V3zm0 2v1h4V5zM3 10h6v-1H3z" fill-rule="evenodd" /><path class="led" d="M9 6h2v5l-1-1-1 1z" /></svg></button>
           <button id="btn-mute" class="icon-btn" type="button" aria-label="Couper le son" title="Son (M)">♪</button>
           <button id="btn-pause" class="icon-btn" type="button" aria-label="Pause" title="Pause (Échap)">❚❚</button>
         </div>
@@ -47,6 +48,11 @@
         <div id="overlay" class="overlay" aria-hidden="true">
           <div id="bubble" class="bubble hidden"></div>
           <div id="tooltip" class="tooltip hidden"></div>
+          <div id="boss-meter" class="boss-meter hidden" role="status" aria-live="polite">
+            <span class="boss-label">Le chef</span>
+            <span id="boss-pips" class="boss-pips" aria-hidden="true"></span>
+            <span id="boss-count" class="boss-count"></span>
+          </div>
         </div>
         <div id="prompt" class="prompt hidden" aria-live="polite"></div>
 
@@ -64,8 +70,17 @@
             </ul>
             <p class="goal">Tenez jusqu’à 17&nbsp;h&nbsp;30.</p>
             <p class="controls controls-keys"><kbd>ZQSD</kbd>/<kbd>WASD</kbd>/flèches ou clic pour marcher · <kbd>E</kbd> ou <kbd>Espace</kbd> pour agir · <kbd>1</kbd>–<kbd>4</kbd> pour répondre · <kbd>Échap</kbd> pause</p>
-            <button id="btn-start" class="btn btn-primary" type="button">Commencer la journée</button>
+            <p id="career-line" class="career-line hidden"></p>
+            <button id="btn-start" class="btn btn-primary" type="button">Commencer — Lundi</button>
             <button id="btn-help" class="btn btn-link" type="button">Comment jouer&nbsp;?</button>
+            <button id="btn-new-career" class="btn btn-link hidden" type="button">Nouvelle carrière</button>
+            <div id="confirm-career" class="confirm hidden" role="alertdialog" aria-labelledby="confirm-career-text">
+              <p id="confirm-career-text">Tout reprendre à lundi&nbsp;? Les compétences et les jours gagnés seront effacés.</p>
+              <div class="confirm-buttons">
+                <button id="btn-career-yes" class="btn btn-danger" type="button">Oui, tout effacer</button>
+                <button id="btn-career-no" class="btn" type="button">Annuler</button>
+              </div>
+            </div>
             <p id="best" class="best"></p>
           </div>
         </section>
@@ -92,6 +107,7 @@
               <li><b>Le téléphone sonne&nbsp;?</b> Décrochez, et promettez d’arriver dans cinq minutes. Toujours cinq. Jamais deux fois la même formule à la même personne&nbsp;: ils s’en souviennent.</li>
               <li><b>Les mails s’empilent&nbsp;?</b> Une réponse sèche, courte et à propos. Moins il y a de mots, mieux c’est… tant que ça répond à la question.</li>
               <li><b>La sérénité baisse</b> quand ça sonne et que la boîte déborde. Le café et le ronron de la salle serveur la font remonter.</li>
+              <li><b>Compétences.</b> Formez-vous à votre bureau (scripts, IA, téléphonie…)&nbsp;: Santi ne fait alors rien d’autre, et le téléphone vous interrompra. Ce qui est appris reste d’un jour à l’autre. Et si trop de demandes restent sans réponse, le chef finit par passer.</li>
               <li><b>Tenez jusqu’à 17&nbsp;h&nbsp;30.</b> Le temps ralentit pendant les appels et les mails&nbsp;: pas de panique.</li>
             </ul>
             <p class="controls controls-touch">Touchez le sol pour marcher, un objet pour l’utiliser. Les gros boutons du bas font le reste, et la ligne au-dessus vous dit quoi faire.</p>
@@ -107,8 +123,19 @@
             <p id="end-comment" class="muted"></p>
             <p class="end-score"><span id="end-score">0</span> <small>points de flegme</small></p>
             <dl id="end-stats" class="end-stats"></dl>
+            <p id="end-skills" class="end-skills hidden"></p>
             <p id="end-epilogue" class="end-epilogue"></p>
-            <button id="btn-again" class="btn btn-primary" type="button">Nouvelle journée</button>
+            <button id="btn-again" class="btn btn-primary" type="button">Journée suivante</button>
+          </div>
+        </section>
+
+        <section id="screen-boss" class="screen screen-boss hidden" aria-labelledby="boss-title">
+          <div class="card boss-card">
+            <p class="end-kicker">Bureau du service informatique, porte ouverte</p>
+            <div class="boss-face" id="boss-face"></div>
+            <h2 id="boss-title" class="boss-title"></h2>
+            <p id="boss-line" class="boss-line" aria-live="polite"></p>
+            <button id="btn-boss-next" class="btn btn-primary" type="button">Voir le bilan</button>
           </div>
         </section>
       </main>
@@ -124,6 +151,25 @@
           <kbd class="act-key">E</kbd>
           <span class="guide-tag" aria-hidden="true">Touchez ici</span>
         </button>
+        <button id="act-ticket" class="act act-ticket hidden" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3h10v2a1 1 0 0 0 0 2v2H1V7a1 1 0 0 0 0-2zm4 1v1h1V4zm0 2v1h1V6zm0 2v1h1V8z" fill-rule="evenodd" /></svg>
+          <span class="act-text"><span class="act-label">→ Ticket</span><small class="act-sub">à l’IA</small></span>
+        </button>
+        <div id="learn-bar" class="learn-bar hidden" role="group" aria-labelledby="learn-title">
+          <div class="learn-top">
+            <svg class="act-icon learn-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h7v1h1v9H3v-1H2zm2 2v1h4V3zm0 2v1h4V5zM3 10h6v-1H3z" fill-rule="evenodd" /><path class="led" d="M9 6h2v5l-1-1-1 1z" /></svg>
+            <span class="learn-text"><b id="learn-title" class="learn-title"></b><small id="learn-sub" class="learn-sub"></small></span>
+          </div>
+          <div class="learn-bottom">
+            <span class="learn-track" aria-hidden="true"><span id="learn-fill" class="learn-fill"></span></span>
+            <span id="learn-pct" class="learn-pct"></span>
+            <button id="learn-stop" class="learn-stop" type="button">Arrêter</button>
+          </div>
+        </div>
+        <button id="act-skills" class="act act-skills" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h7v1h1v9H3v-1H2zm2 2v1h4V3zm0 2v1h4V5zM3 10h6v-1H3z" fill-rule="evenodd" /><path class="led" d="M9 6h2v5l-1-1-1 1z" /></svg>
+          <span class="act-text"><span class="act-label">Compétences</span><small id="act-skills-sub" class="act-sub"></small></span>
+        </button>
         <button id="act-mail" class="act" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v8H1zm1 1v1h1v1h1v1h1v1h2V6h1V5h1V4h1V3zm0 3v3h8V6H9v1H8v1H4V7H3V6z" fill-rule="evenodd" /></svg>
           <span class="act-text"><span class="act-label">Mails</span><small id="act-mail-sub" class="act-sub"></small></span>
@@ -137,6 +183,10 @@
         <button id="act-server" class="act" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h8v10H2zm1 1v2h6V2zm0 3v2h6V5zm0 3v2h6V8z" fill-rule="evenodd" /><path class="led" d="M7 2h1v1H7zM7 5h1v1H7zM7 8h1v1H7z" /></svg>
           <span class="act-text"><span class="act-label">Serveurs</span><small id="act-server-sub" class="act-sub"></small></span>
+        </button>
+        <button id="act-bench" class="act hidden" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M7 1h2v1h1v1h1v2H9V4H8v2H7v1H6v1H5v1H4v1H3v1H1V9h1V8h1V7h1V6h1V5h1V3h1z" /><path class="led" d="M1 1h2v2H1z" /></svg>
+          <span class="act-text"><span class="act-label">Bricoler</span><small id="act-bench-sub" class="act-sub"></small></span>
         </button>
       </nav>
 
@@ -152,14 +202,55 @@
         <div id="phone-choices" class="phone-choices"></div>
       </section>
 
+      <section id="skills" class="panel skills hidden" role="dialog" aria-modal="false" aria-labelledby="skills-title">
+        <div class="win-bar">
+          <svg class="win-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h7v1h1v9H3v-1H2zm2 2v1h4V3zm0 2v1h4V5zM3 10h6v-1H3z" fill-rule="evenodd" /><path class="led" d="M9 6h2v5l-1-1-1 1z" /></svg>
+          <span id="skills-title" class="win-title">Propriétés de&nbsp;: Santi</span>
+          <button id="skills-close" class="win-close" type="button" aria-label="Fermer les compétences">✕</button>
+        </div>
+        <div id="skills-ring" class="win-ring hidden">
+          <button id="skills-ring-text" class="win-ring-answer" type="button"></button>
+          <button id="skills-ring-ticket" class="win-ring-ticket hidden" type="button">→ Ticket</button>
+        </div>
+        <div class="win-dialog">
+          <div id="skills-tabs" class="win-tabs" role="tablist" aria-label="Catégories"></div>
+          <div id="skills-sheet" class="win-sheet" role="tabpanel">
+            <p class="win-path">Nom de l’objet&nbsp;: <code id="skills-path"></code></p>
+            <div id="skills-acl" class="acl"></div>
+            <fieldset id="skills-details" class="win-group"></fieldset>
+          </div>
+          <div class="win-foot">
+            <p id="skills-drain" class="win-drain"></p>
+            <div class="win-buttons">
+              <button id="skills-action" class="win-btn primary" type="button"></button>
+              <button id="skills-ok" class="win-btn" type="button">OK</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="mail" class="panel mail hidden" role="dialog" aria-modal="false" aria-labelledby="mail-title">
         <div class="win-bar">
           <button id="mail-back" class="win-back hidden" type="button" aria-label="Retour à la boîte de réception">‹ Boîte</button>
           <span id="mail-title" class="win-title">Messagerie — santi@entreprise.fr</span>
           <button id="mail-close" class="win-close" type="button" aria-label="Fermer la messagerie">✕</button>
         </div>
-        <div id="mail-ring" class="mail-ring hidden"></div>
-        <div class="mail-body">
+        <div id="mail-ring" class="win-ring hidden">
+          <button id="mail-ring-text" class="win-ring-answer" type="button"></button>
+          <button id="mail-ring-ticket" class="win-ring-ticket hidden" type="button">→ Ticket</button>
+        </div>
+        <div id="mail-tools" class="mail-tools hidden">
+          <div id="mail-tabs" class="mail-tabs hidden" role="tablist">
+            <button id="mail-tab-inbox" class="mail-tab active" type="button" role="tab" aria-selected="true">Boîte de réception</button>
+            <button id="mail-tab-desk" class="mail-tab" type="button" role="tab" aria-selected="false">Tickets</button>
+          </div>
+          <div class="mail-auto">
+            <span id="mail-ai" class="mail-ai hidden"></span>
+            <button id="mail-script" class="mail-script hidden" type="button"></button>
+          </div>
+        </div>
+        <div id="mail-desk" class="mail-desk hidden"></div>
+        <div id="mail-body" class="mail-body">
           <ul id="mail-list" class="mail-list" aria-label="Boîte de réception"></ul>
           <article id="mail-read" class="mail-read"></article>
         </div>
