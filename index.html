@@ -16,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-CKLAIr6A.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BX6QYlt0.css">
+    <script type="module" crossorigin src="./assets/index-CIItrfgh.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cx3oLMkV.css">
   </head>
   <body>
     <div id="app">
@@ -48,10 +48,9 @@
         <div id="overlay" class="overlay" aria-hidden="true">
           <div id="bubble" class="bubble hidden"></div>
           <div id="tooltip" class="tooltip hidden"></div>
-          <div id="boss-meter" class="boss-meter hidden" role="status" aria-live="polite">
-            <span class="boss-label">Le chef</span>
+          <div id="boss-meter" class="boss-meter hidden" role="meter" aria-valuemin="0" aria-valuemax="100">
+            <span id="boss-label" class="boss-label">Chaîne</span>
             <span id="boss-pips" class="boss-pips" aria-hidden="true"></span>
-            <span id="boss-count" class="boss-count"></span>
           </div>
         </div>
         <div id="prompt" class="prompt hidden" aria-live="polite"></div>
@@ -69,6 +68,7 @@
               <li><svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 1h1v2H4zM6 1h1v2H6zM2 4h7v1h2v3H9v1H8v1H3V9H2zm7 2v1h1V6zM1 11h10v1H1z" fill-rule="evenodd" /></svg><b>Ça chauffe&nbsp;?</b><span>Soufflez.</span></li>
             </ul>
             <p class="goal">Tenez jusqu’à 17&nbsp;h&nbsp;30.</p>
+            <p id="title-teaser" class="teaser hidden"></p>
             <p class="controls controls-keys"><kbd>ZQSD</kbd>/<kbd>WASD</kbd>/flèches ou clic pour marcher · <kbd>E</kbd> ou <kbd>Espace</kbd> pour agir · <kbd>1</kbd>–<kbd>4</kbd> pour répondre · <kbd>Échap</kbd> pause</p>
             <p id="career-line" class="career-line hidden"></p>
             <button id="btn-start" class="btn btn-primary" type="button">Commencer — Lundi</button>
@@ -107,9 +107,11 @@
               <li><b>Le téléphone sonne&nbsp;?</b> Décrochez, et promettez d’arriver dans cinq minutes. Toujours cinq. Jamais deux fois la même formule à la même personne&nbsp;: ils s’en souviennent.</li>
               <li><b>Les mails s’empilent&nbsp;?</b> Une réponse sèche, courte et à propos. Moins il y a de mots, mieux c’est… tant que ça répond à la question.</li>
               <li><b>La sérénité baisse</b> quand ça sonne et que la boîte déborde. Le café et le ronron de la salle serveur la font remonter.</li>
-              <li><b>Compétences.</b> Formez-vous à votre bureau (scripts, IA, téléphonie…)&nbsp;: Santi ne fait alors rien d’autre, et le téléphone vous interrompra. Ce qui est appris reste d’un jour à l’autre. Et si trop de demandes restent sans réponse, le chef finit par passer.</li>
+              <li><b>Compétences.</b> Formez-vous à votre bureau (scripts, IA, téléphonie…)&nbsp;: Santi ne fait alors rien d’autre, et le téléphone vous interrompra. Ce qui est appris reste d’un jour à l’autre. Et si trop de demandes restent sans réponse, Odile, la DSI, finit par passer.</li>
               <li><b>Tenez jusqu’à 17&nbsp;h&nbsp;30.</b> Le temps ralentit pendant les appels et les mails&nbsp;: pas de panique.</li>
             </ul>
+            <h3 class="help-sub">L’open space (dès jeudi)</h3>
+            <ul id="help-chain" class="rules rules-chain"></ul>
             <p class="controls controls-touch">Touchez le sol pour marcher, un objet pour l’utiliser. Les gros boutons du bas font le reste, et la ligne au-dessus vous dit quoi faire.</p>
             <p class="controls controls-keys"><kbd>ZQSD</kbd>/<kbd>WASD</kbd>/flèches ou clic pour marcher · <kbd>E</kbd> ou <kbd>Espace</kbd> pour agir · <kbd>1</kbd>–<kbd>4</kbd> pour répondre · <kbd>Échap</kbd> pause</p>
             <button id="btn-help-back" class="btn btn-primary" type="button">Compris</button>
@@ -129,6 +131,16 @@
           </div>
         </section>
 
+        <section id="screen-news" class="screen hidden" aria-labelledby="news-title">
+          <div class="card news-card">
+            <p class="end-kicker">Note de service</p>
+            <h2 id="news-title"></h2>
+            <p id="news-text" class="news-text"></p>
+            <p id="news-tip" class="tip" role="note"><b>Astuce</b><span id="news-tip-text"></span></p>
+            <button id="btn-news-ok" class="btn btn-primary" type="button">Au travail</button>
+          </div>
+        </section>
+
         <section id="screen-boss" class="screen screen-boss hidden" aria-labelledby="boss-title">
           <div class="card boss-card">
             <p class="end-kicker">Bureau du service informatique, porte ouverte</p>
@@ -144,6 +156,7 @@
         <div id="objective" class="objective" role="status" aria-live="polite">
           <span class="objective-phone" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg><span id="objective-phone-state">calme</span></span>
           <span id="objective-text" class="objective-text"></span>
+          <button id="objective-go" class="objective-go hidden" type="button">Y aller</button>
         </div>
         <button id="ring-banner" class="act act-answer ring-banner hidden" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /><path class="led" d="M4 8h1v1H4zM7 8h1v1H7z" /></svg>
@@ -200,6 +213,20 @@
         </div>
         <div id="phone-log" class="phone-log"></div>
         <div id="phone-choices" class="phone-choices"></div>
+      </section>
+
+      <section id="visit" class="panel phone visit hidden" role="dialog" aria-modal="false" aria-labelledby="visit-name">
+        <div class="visit-head">
+          <div id="visit-face" class="visit-face"></div>
+          <div class="visit-id">
+            <span id="visit-name" class="visit-name"></span>
+            <span id="visit-role" class="visit-role"></span>
+            <span id="visit-patience" class="visit-patience" role="meter" aria-valuemin="0" aria-valuemax="100"><span id="visit-patience-fill"></span></span>
+          </div>
+          <button id="visit-close" class="win-close visit-close" type="button" aria-label="Repartir sans rien dire">✕</button>
+        </div>
+        <div id="visit-log" class="phone-log"></div>
+        <div id="visit-choices" class="phone-choices"></div>
       </section>
 
       <section id="skills" class="panel skills hidden" role="dialog" aria-modal="false" aria-labelledby="skills-title">
