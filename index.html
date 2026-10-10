@@ -16,13 +16,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-CIItrfgh.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Cx3oLMkV.css">
+    <script type="module" crossorigin src="./assets/index-CAL3HnYK.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-3ROziyA8.css">
   </head>
   <body>
     <div id="app">
       <header id="hud" class="hud" aria-label="Tableau de bord">
         <div class="hud-block hud-clock">
+          <span id="hud-god" class="hud-god hidden" title="Mode god">GOD</span>
           <span id="hud-day" class="hud-day">Lundi</span><span id="hud-day-short" class="hud-day hud-day-short" aria-hidden="true">Lun.</span>
           <span id="hud-time" class="lcd">08:30</span>
           <span class="hud-progress" aria-hidden="true"><span id="hud-progress-bar"></span></span>
@@ -38,6 +39,7 @@
         </div>
         <div class="hud-block hud-buttons">
           <button id="btn-skills" class="icon-btn hud-skills" type="button" aria-label="Compétences" title="Compétences (C)"><svg class="hud-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h7v1h1v9H3v-1H2zm2 2v1h4V3zm0 2v1h4V5zM3 10h6v-1H3z" fill-rule="evenodd" /><path class="led" d="M9 6h2v5l-1-1-1 1z" /></svg></button>
+          <button id="btn-fast" class="icon-btn btn-fast" type="button" aria-pressed="false" aria-label="Temps rapide : désactivé" title="Rapide : le temps file quand rien ne se passe (F)"><svg class="hud-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h1v1h1v1h1v1h1v2H4v1H3v1H2v1H1zM6 2h1v1h1v1h1v1h1v2H9v1H8v1H7v1H6z" /></svg></button>
           <button id="btn-mute" class="icon-btn" type="button" aria-label="Couper le son" title="Son (M)">♪</button>
           <button id="btn-pause" class="icon-btn" type="button" aria-label="Pause" title="Pause (Échap)">❚❚</button>
         </div>
@@ -82,6 +84,25 @@
               </div>
             </div>
             <p id="best" class="best"></p>
+            <div id="tester-panel" class="tester hidden" aria-label="Mode testeur">
+              <div class="tester-modes" role="radiogroup" aria-label="Mode de jeu">
+                <button id="btn-mode-normal" class="tester-mode" type="button" role="radio" aria-checked="true">Normal</button>
+                <button id="btn-mode-god" class="tester-mode" type="button" role="radio" aria-checked="false">God</button>
+              </div>
+              <div id="tester-god" class="tester-god hidden">
+                <label class="tester-row">Jour de départ
+                  <select id="tester-day"></select>
+                </label>
+                <label class="tester-row tester-check"><input id="tester-skills" type="checkbox" /> Toutes les compétences</label>
+                <p class="tester-note">Ni burn-out, ni renvoi. Progression à part.</p>
+              </div>
+            </div>
+            <form id="tester-login" class="tester-login hidden" autocomplete="off">
+              <input id="tester-pass" type="password" placeholder="Mot de passe testeur" aria-label="Mot de passe testeur" autocomplete="off" />
+              <button class="btn" type="submit">OK</button>
+              <p id="tester-msg" class="tester-msg" aria-live="polite"></p>
+            </form>
+            <button id="btn-lock" class="btn-lock" type="button" aria-label="Mode testeur">🔒</button>
           </div>
         </section>
 
@@ -108,7 +129,7 @@
               <li><b>Les mails s’empilent&nbsp;?</b> Une réponse sèche, courte et à propos. Moins il y a de mots, mieux c’est… tant que ça répond à la question.</li>
               <li><b>La sérénité baisse</b> quand ça sonne et que la boîte déborde. Le café et le ronron de la salle serveur la font remonter.</li>
               <li><b>Compétences.</b> Formez-vous à votre bureau (scripts, IA, téléphonie…)&nbsp;: Santi ne fait alors rien d’autre, et le téléphone vous interrompra. Ce qui est appris reste d’un jour à l’autre. Et si trop de demandes restent sans réponse, Odile, la DSI, finit par passer.</li>
-              <li><b>Tenez jusqu’à 17&nbsp;h&nbsp;30.</b> Le temps ralentit pendant les appels et les mails&nbsp;: pas de panique.</li>
+              <li><b>Tenez jusqu’à 17&nbsp;h&nbsp;30.</b> Le temps ralentit pendant les appels et les mails&nbsp;: pas de panique. Le bouton <b>⏩</b> l’accélère quand tout est calme&nbsp;; il se coupe dès que ça sonne.</li>
             </ul>
             <h3 class="help-sub">L’open space (dès jeudi)</h3>
             <ul id="help-chain" class="rules rules-chain"></ul>
