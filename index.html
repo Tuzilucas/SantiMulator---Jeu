@@ -16,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-CAL3HnYK.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-3ROziyA8.css">
+    <script type="module" crossorigin src="./assets/index-B_Q2_xtV.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D3KGiP6n.css">
   </head>
   <body>
     <div id="app">
@@ -50,12 +50,15 @@
         <div id="overlay" class="overlay" aria-hidden="true">
           <div id="bubble" class="bubble hidden"></div>
           <div id="tooltip" class="tooltip hidden"></div>
+          <div id="stick" class="stick hidden"><span class="stick-knob"></span></div>
           <div id="boss-meter" class="boss-meter hidden" role="meter" aria-valuemin="0" aria-valuemax="100">
             <span id="boss-label" class="boss-label">Chaîne</span>
             <span id="boss-pips" class="boss-pips" aria-hidden="true"></span>
           </div>
         </div>
         <div id="prompt" class="prompt hidden" aria-live="polite"></div>
+        <div id="look" class="look hidden" role="img" aria-label="Regarder autour : glissez depuis ce rond (ou à deux doigts sur le monde)"><span class="look-knob" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M3 4h6v1h2v2H9v1H3V7H1V5h2zm2 1v2h2V5z" fill-rule="evenodd" /></svg></span></div>
+        <button id="recenter" class="recenter hidden" type="button" aria-label="Recentrer la vue sur Santi">Santi</button>
 
         <section id="screen-title" class="screen" aria-labelledby="title-logo">
           <div class="card title-card">
