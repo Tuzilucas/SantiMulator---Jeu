@@ -16,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-B36sWg-h.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-B2q5vczS.css">
+    <script type="module" crossorigin src="./assets/index-BRo69WeM.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C_lvIrzT.css">
   </head>
   <body>
     <div id="app">
@@ -32,6 +32,11 @@
           <span id="hud-mood-label" class="hud-label">Humeur</span>
           <span id="hud-mood" class="hud-mood">Sifflote</span>
           <span class="zen-bar" role="meter" aria-label="Humeur" aria-valuemin="0" aria-valuemax="100" id="zen-meter"><span id="zen-fill"></span></span>
+        </div>
+        <div id="hud-rep" class="hud-block hud-rep hidden" title="Réputation de Santi">
+          <span class="hud-rep-icon" aria-hidden="true">♥</span>
+          <span id="hud-rep-label" class="hud-rep-label">Le monsieur du cagibi</span>
+          <span id="rep-meter" class="rep-bar" role="meter" aria-label="Réputation" aria-valuemin="0" aria-valuemax="100"><span id="rep-fill"></span></span>
         </div>
         <div class="hud-block hud-stats">
           <span class="stat" title="Points de flegme"><span class="stat-icon" aria-hidden="true">✦</span><span id="hud-score">0</span></span>
@@ -173,7 +178,7 @@
 
         <section id="screen-machine" class="screen hidden" aria-labelledby="machine-scene-title">
           <div class="card machine-card">
-            <p class="end-kicker">Le cagibi, 8&nbsp;h&nbsp;31</p>
+            <p id="machine-scene-kicker" class="end-kicker">Le cagibi, 8&nbsp;h&nbsp;31</p>
             <h2 id="machine-scene-title"></h2>
             <div id="machine-scene-body" class="machine-scene-body"></div>
             <button id="btn-machine-next" class="btn btn-primary" type="button">Brancher le répondeur</button>
@@ -196,6 +201,7 @@
           <span class="objective-phone" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg><span id="objective-phone-state">calme</span></span>
           <span id="objective-text" class="objective-text"></span>
           <button id="objective-go" class="objective-go hidden" type="button">Y aller</button>
+          <span id="objective-cook" class="objective-cook hidden" aria-hidden="true"><span id="objective-cook-fill"></span></span>
         </div>
         <button id="ring-banner" class="act act-answer ring-banner hidden" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /><path class="led" d="M4 8h1v1H4zM7 8h1v1H7z" /></svg>
@@ -226,6 +232,12 @@
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v8H1zm1 1v1h1v1h1v1h1v1h2V6h1V5h1V4h1V3zm0 3v3h8V6H9v1H8v1H4V7H3V6z" fill-rule="evenodd" /></svg>
           <span class="act-text"><span class="act-label">Mails</span><small id="act-mail-sub" class="act-sub"></small></span>
           <span id="act-mail-badge" class="act-badge hidden"></span>
+          <span class="guide-tag" aria-hidden="true">Touchez ici</span>
+        </button>
+        <button id="act-orders" class="act act-orders hidden" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h8v7l-3 3H2zm1 1v8h3V7h3V2zm1 1h4v1H4zm0 2h4v1H4z" fill-rule="evenodd" /><path class="led" d="M7 8h2l-2 2z" /></svg>
+          <span class="act-text"><span class="act-label">Commandes</span><small id="act-orders-sub" class="act-sub"></small></span>
+          <span id="act-orders-badge" class="act-badge hidden"></span>
           <span class="guide-tag" aria-hidden="true">Touchez ici</span>
         </button>
         <button id="act-machine" class="act act-machine hidden" type="button">
@@ -270,6 +282,18 @@
         <div class="phone-choices">
           <button id="machine-close" class="choice machine-close" type="button">Fermer</button>
         </div>
+      </section>
+
+      <section id="kitchen" class="panel kitchen hidden" role="dialog" aria-modal="false" aria-labelledby="kit-title">
+        <div class="kit-bar">
+          <button id="kit-back" class="kit-back hidden" type="button" aria-label="Retour">‹</button>
+          <span id="kit-title" class="kit-title">Commandes</span>
+          <button id="kit-book" class="kit-book" type="button">Carnet</button>
+          <button id="kit-close" class="kit-close" type="button" aria-label="Fermer la cuisine">✕</button>
+        </div>
+        <div id="kit-ring" class="kit-ring hidden"><button id="kit-ring-text" class="kit-ring-answer" type="button"></button></div>
+        <div id="kit-body" class="kit-body"></div>
+        <div id="kit-foot" class="kit-foot hidden"></div>
       </section>
 
       <section id="visit" class="panel phone visit hidden" role="dialog" aria-modal="false" aria-labelledby="visit-name">
