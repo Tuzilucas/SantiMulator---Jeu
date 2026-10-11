@@ -15,10 +15,10 @@
  *    préchauffé à l'installation pour qu'un premier lancement hors ligne
  *    garde la bonne typographie.
  */
-const VERSION = '5bc6a8345a56';
+const VERSION = '32ced8272c9e';
 const PRECACHE_URLS = [
-  "./assets/index-C4XaqhR-.js",
-  "./assets/index-D3KGiP6n.css",
+  "./assets/index-B2q5vczS.css",
+  "./assets/index-B36sWg-h.js",
   "./icons/apple-touch-icon.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
