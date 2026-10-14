@@ -15,7 +15,7 @@
  *    préchauffé à l'installation pour qu'un premier lancement hors ligne
  *    garde la bonne typographie.
  */
-const VERSION = '71d598672b8e';
+const VERSION = 'bdf6b74e05fe';
 const PRECACHE_URLS = [
   "./assets/autoscene-CthaICs6.js",
   "./assets/index-EjDv9MAR.js",
@@ -27,6 +27,7 @@ const PRECACHE_URLS = [
   "./icons/icon-512.png",
   "./icons/icon-maskable-512.png",
   "./index.html",
+  "./jaquette.png",
   "./manifest.webmanifest"
 ];
 const FONT_CSS_URLS = ["https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap"];

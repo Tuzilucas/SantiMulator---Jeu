@@ -2,6 +2,8 @@
 
 > « Ah, juste cinq minutes, j’arrive. »
 
+![Jaquette de SantiMulator](jaquette.png)
+
 Une journée dans la peau de Santi, informaticien. Le téléphone sonne, les mails s’empilent, et Santi n’a qu’une réponse : cinq minutes.
 
 **Jouer :** https://tuzilucas.github.io/SantiMulator---Jeu/
