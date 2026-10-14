@@ -16,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-GHleXopW.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CyvLceM-.css">
+    <script type="module" crossorigin src="./assets/index-EjDv9MAR.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-UI5DOS1X.css">
   </head>
   <body>
     <div id="app">
@@ -115,8 +115,10 @@
           <div class="card pause-card">
             <h2 id="pause-title">Pause</h2>
             <p class="muted">Le temps s’est arrêté. Même le téléphone retient son souffle.</p>
+            <p id="pause-week" class="pause-week hidden"><b>Cette semaine</b><span id="pause-week-text"></span></p>
             <div class="stack">
               <button id="btn-resume" class="btn btn-primary" type="button">Reprendre</button>
+              <button id="btn-pause-carnet" class="btn hidden" type="button">Carnet des collègues</button>
               <button id="btn-pause-help" class="btn" type="button">Comment jouer&nbsp;?</button>
               <button id="btn-restart" class="btn" type="button">Recommencer la journée</button>
               <button id="btn-music" class="btn btn-toggle" type="button" aria-pressed="true">
@@ -151,12 +153,31 @@
             <p class="end-kicker" id="end-kicker">Rapport de fin de journée</p>
             <h2 id="end-title" class="end-rank"></h2>
             <p id="end-comment" class="muted"></p>
+            <div id="end-reasons" class="end-reasons hidden"></div>
             <dl id="end-stats" class="end-stats"></dl>
+            <div id="end-week" class="end-week hidden"></div>
+            <ul id="end-stories" class="end-stories hidden"></ul>
             <ul id="end-adoption" class="end-adoption hidden" aria-label="Les outils dans l’étage"></ul>
             <p id="end-epilogue" class="end-epilogue"></p>
             <p id="end-joke" class="tip end-joke hidden" role="note"><b>Blague du jour</b><span id="end-joke-text"></span></p>
             <p id="end-hint" class="end-hint hidden"></p>
             <button id="btn-again" class="btn btn-primary" type="button">Journée suivante</button>
+          </div>
+        </section>
+
+        <section id="screen-review" class="screen hidden" aria-labelledby="review-title">
+          <div class="card review-card">
+            <p id="review-kicker" class="end-kicker">Vendredi soir</p>
+            <div class="review-head">
+              <div id="review-face" class="review-face" aria-hidden="true"></div>
+              <div class="review-id">
+                <h2 id="review-title">Odile</h2>
+                <span id="review-role" class="review-role"></span>
+              </div>
+              <ol id="review-dots" class="review-dots" aria-hidden="true"></ol>
+            </div>
+            <div id="review-body" class="review-body" aria-live="polite"></div>
+            <button id="btn-review-next" class="btn btn-primary" type="button">Suite</button>
           </div>
         </section>
 
@@ -249,6 +270,12 @@
       </nav>
 
       <div id="toasts" class="toasts" aria-live="polite"></div>
+      <!-- La sonnerie par-dessus une feuille sans bandeau à elle (répondeur, fiche d'un collègue, visite). -->
+      <button id="ring-float" class="ring-float hidden" type="button">
+        <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg>
+        <span id="ring-float-text" class="ring-float-text"></span>
+        <b class="ring-float-go">Décrocher</b>
+      </button>
 
       <section id="phone" class="panel phone hidden" role="dialog" aria-modal="false" aria-labelledby="phone-caller">
         <div class="phone-lcd">
@@ -285,6 +312,7 @@
           <button class="st-tab" type="button" role="tab" data-tab="home">Outil</button>
           <button class="st-tab" type="button" role="tab" data-tab="jobs">Services<span class="st-tab-n"></span></button>
           <button class="st-tab" type="button" role="tab" data-tab="research">Recherche</button>
+          <button class="st-tab hidden" type="button" role="tab" data-tab="shop">Boutique</button>
           <button class="st-tab" type="button" role="tab" data-tab="notebook">Carnet</button>
         </div>
         <div id="st-body" class="kit-body st-body"></div>
