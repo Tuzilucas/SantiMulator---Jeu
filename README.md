@@ -2,7 +2,7 @@
 
 > « Ah, juste cinq minutes, j’arrive. »
 
-![Jaquette de SantiMulator](jaquette.png)
+<p><img src="jaquette.png" alt="Jaquette de SantiMulator, face avant" width="45%"> <img src="jaquette-dos.png" alt="Jaquette de SantiMulator, dos" width="45%"></p>
 
 Une journée dans la peau de Santi, informaticien. Le téléphone sonne, les mails s’empilent, et Santi n’a qu’une réponse : cinq minutes.
 

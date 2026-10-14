@@ -15,7 +15,7 @@
  *    préchauffé à l'installation pour qu'un premier lancement hors ligne
  *    garde la bonne typographie.
  */
-const VERSION = 'bdf6b74e05fe';
+const VERSION = 'bcf6e021aa5c';
 const PRECACHE_URLS = [
   "./assets/autoscene-CthaICs6.js",
   "./assets/index-EjDv9MAR.js",
@@ -27,6 +27,7 @@ const PRECACHE_URLS = [
   "./icons/icon-512.png",
   "./icons/icon-maskable-512.png",
   "./index.html",
+  "./jaquette-dos.png",
   "./jaquette.png",
   "./manifest.webmanifest"
 ];
