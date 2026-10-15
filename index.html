@@ -21,221 +21,228 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-CeFMAVKL.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BfpK1MY4.css">
+    <script type="module" crossorigin src="./assets/index-BYdDz-2s.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C9a-A7pN.css">
   </head>
   <body>
     <div id="app">
-      <header id="hud" class="hud" aria-label="Tableau de bord">
+      <header id="hud" class="hud" data-t-label="hud.label">
         <div class="hud-block hud-clock">
-          <span id="hud-god" class="hud-god hidden" title="Mode god">GOD</span>
-          <span id="hud-day" class="hud-day">Lundi</span><span id="hud-day-short" class="hud-day hud-day-short" aria-hidden="true">Lun.</span>
+          <span id="hud-god" class="hud-god hidden" data-t="hud.god" data-t-title="hud.god.title"></span>
+          <span id="hud-day" class="hud-day" data-t="hud.day"></span><span id="hud-day-short" class="hud-day hud-day-short" aria-hidden="true" data-t="hud.dayShort"></span>
           <span id="hud-time" class="lcd">08:30</span>
           <span class="hud-progress" aria-hidden="true"><span id="hud-progress-bar"></span></span>
         </div>
-        <div class="hud-block hud-zen" title="Humeur d’Ando">
-          <span id="hud-mood-label" class="hud-label">Humeur</span>
-          <span id="hud-mood" class="hud-mood">Sifflote</span>
-          <span class="zen-bar" role="meter" aria-label="Humeur" aria-valuemin="0" aria-valuemax="100" id="zen-meter"><span id="zen-fill"></span></span>
+        <div class="hud-block hud-zen" data-t-title="hud.mood.title">
+          <span id="hud-mood-label" class="hud-label" data-t="hud.mood.label"></span>
+          <span id="hud-mood" class="hud-mood" data-t="hud.mood.value"></span>
+          <span class="zen-bar" role="meter" data-t-label="hud.mood.label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" id="zen-meter"><span id="zen-fill"></span></span>
         </div>
-        <button id="hud-rep" class="hud-block hud-rep hidden" type="button" title="Réputation et points de recherche : toucher pour la légende" aria-expanded="false" aria-controls="hud-legend">
+        <button id="hud-rep" class="hud-block hud-rep hidden" type="button" data-t-title="hud.rep.title" aria-expanded="false" aria-controls="hud-legend">
           <span class="hud-rep-icon" aria-hidden="true">♥</span>
-          <span id="hud-rep-label" class="hud-rep-label">Le monsieur du cagibi</span>
-          <span id="rep-meter" class="rep-bar" role="meter" aria-label="Réputation" aria-valuemin="0" aria-valuemax="100"><span id="rep-fill"></span></span>
-          <span id="hud-research" class="hud-research hidden" title="Points de recherche"><span class="hud-research-icon" aria-hidden="true">◆</span><span id="hud-research-n">0</span><span class="sr-only"> points de recherche</span></span>
+          <span id="hud-rep-label" class="hud-rep-label" data-t="hud.rep.label"></span>
+          <span id="rep-meter" class="rep-bar" role="meter" data-t-label="hud.rep.meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="rep-fill"></span></span>
+          <span id="hud-research" class="hud-research hidden" data-t-title="hud.research.title"><span class="hud-research-icon" aria-hidden="true">◆</span><span id="hud-research-n">0</span><span class="sr-only" data-t="hud.research.sr"></span></span>
           <span class="hud-help" aria-hidden="true">?</span>
         </button>
         <div class="hud-block hud-buttons">
-          <button id="btn-fast" class="icon-btn btn-fast" type="button" aria-pressed="false" aria-label="Temps rapide : désactivé" title="Rapide : le temps file quand rien ne se passe (F)"><svg class="hud-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h1v1h1v1h1v1h1v2H4v1H3v1H2v1H1zM6 2h1v1h1v1h1v1h1v2H9v1H8v1H7v1H6z" /></svg></button>
-          <button id="btn-mute" class="icon-btn" type="button" aria-label="Couper le son" title="Son (M)">♪</button>
-          <button id="btn-pause" class="icon-btn" type="button" aria-label="Pause" title="Pause (Échap)">❚❚</button>
+          <button id="btn-fast" class="icon-btn btn-fast" type="button" aria-pressed="false" data-t-label="hud.fast.label" data-t-title="hud.fast.title"><svg class="hud-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h1v1h1v1h1v1h1v2H4v1H3v1H2v1H1zM6 2h1v1h1v1h1v1h1v2H9v1H8v1H7v1H6z" /></svg></button>
+          <button id="btn-mute" class="icon-btn" type="button" data-t-label="hud.mute.label" data-t-title="hud.mute.title">♪</button>
+          <button id="btn-pause" class="icon-btn" type="button" data-t-label="hud.pause.label" data-t-title="hud.pause.title">❚❚</button>
         </div>
-        <div id="hud-legend" class="hud-legend hidden" role="note" aria-label="Légende du tableau de bord"></div>
+        <div id="hud-legend" class="hud-legend hidden" role="note" data-t-label="hud.legend.label"></div>
       </header>
 
       <main id="stage" class="stage">
-        <canvas id="world" aria-label="Le bureau d’Ando"></canvas>
+        <canvas id="world" tabindex="-1" data-t-label="world.label"></canvas>
         <div id="overlay" class="overlay" aria-hidden="true">
           <div id="bubble" class="bubble hidden"></div>
           <div id="tooltip" class="tooltip hidden"></div>
           <div id="away-pill" class="away-pill hidden"></div>
         </div>
-        <button id="sheet-band" class="sheet-band hidden" type="button" aria-label="Ouvrir l’atelier">
+        <button id="sheet-band" class="sheet-band hidden" type="button" data-t-label="world.band.label">
           <span class="sb-top"><span id="sb-name" class="sb-name"></span><span id="sb-step" class="sb-step"></span></span>
           <span class="sb-mid"><span id="sb-grid" class="sb-grid" aria-hidden="true"></span><span id="sb-count" class="sb-count"></span></span>
           <span class="sb-track" aria-hidden="true"><span id="sb-fill" class="sb-fill"></span></span>
         </button>
         <div id="prompt" class="prompt hidden" aria-live="polite"></div>
-        <button id="recenter" class="recenter hidden" type="button" aria-label="Recentrer la vue sur Ando">Ando</button>
+        <button id="recenter" class="recenter hidden" type="button" data-t="world.recenter" data-t-label="world.recenter.label"></button>
 
-        <section id="screen-title" class="screen" aria-labelledby="title-logo">
+        <section id="screen-title" class="screen" role="dialog" aria-modal="true" aria-labelledby="title-logo">
           <div class="card title-card">
             <canvas id="title-santi" class="title-santi" width="20" height="32" aria-hidden="true"></canvas>
             <div>
-              <h1 id="title-logo" class="logo">An’do<span>Sim</span></h1>
-              <p class="tagline">«&nbsp;Ah, juste cinq minoutes, ja arrrive.&nbsp;»</p>
+              <h1 id="title-logo" class="logo"><span data-t="title.logo"></span><span class="logo-sim" data-t="title.logoSim"></span></h1>
+              <p class="tagline" data-t="title.tagline"></p>
             </div>
-            <ul class="pictos" aria-label="En bref">
-              <li><svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg><b>Ça sonne&nbsp;?</b><span>Décrochez.</span></li>
-              <li><svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3h10v7H1zm1 1v3h8V4zm1 4v1h6V8z" fill-rule="evenodd" /></svg><b>Raté&nbsp;?</b><span>Rappelez.</span></li>
-              <li><svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 1h1v2H4zM6 1h1v2H6zM2 4h7v1h2v3H9v1H8v1H3V9H2zm7 2v1h1V6zM1 11h10v1H1z" fill-rule="evenodd" /></svg><b>Grognon&nbsp;?</b><span>Un café.</span></li>
+            <ul class="pictos" data-t-label="title.pictos">
+              <li><svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg><b data-t="title.picto1.b"></b><span data-t="title.picto1"></span></li>
+              <li><svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3h10v7H1zm1 1v3h8V4zm1 4v1h6V8z" fill-rule="evenodd" /></svg><b data-t="title.picto2.b"></b><span data-t="title.picto2"></span></li>
+              <li><svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 1h1v2H4zM6 1h1v2H6zM2 4h7v1h2v3H9v1H8v1H3V9H2zm7 2v1h1V6zM1 11h10v1H1z" fill-rule="evenodd" /></svg><b data-t="title.picto3.b"></b><span data-t="title.picto3"></span></li>
             </ul>
-            <p class="goal" id="title-goal">On commence au cagibi. L’open space, un jour.</p>
+            <p class="goal" id="title-goal" data-t="title.goal"></p>
             <p id="title-teaser" class="teaser hidden"></p>
-            <p class="controls controls-keys"><kbd>ZQSD</kbd>/<kbd>WASD</kbd>/flèches ou clic pour marcher · <kbd>E</kbd> ou <kbd>Espace</kbd> pour agir · <kbd>1</kbd>–<kbd>4</kbd> pour répondre · <kbd>Échap</kbd> pause</p>
+            <p class="controls controls-keys" data-t="title.keys"></p>
             <p id="career-line" class="career-line hidden"></p>
-            <button id="btn-start" class="btn btn-primary" type="button">Commencer — Lundi</button>
-            <button id="btn-help" class="btn btn-link" type="button">Comment jouer&nbsp;?</button>
-            <button id="btn-new-career" class="btn btn-link hidden" type="button">Nouvelle carrière</button>
-            <p class="copyright">©&nbsp;2026 Lucas&nbsp;Tuzi&nbsp;– Tous&nbsp;droits&nbsp;réservés</p>
+            <button id="btn-start" class="btn btn-primary" type="button" data-t="title.start"></button>
+            <button id="btn-help" class="btn btn-link" type="button" data-t="title.help"></button>
+            <button id="btn-new-career" class="btn btn-link hidden" type="button" data-t="title.newCareer"></button>
+            <p class="copyright" data-t="copyright"></p>
             <div id="confirm-career" class="confirm hidden" role="alertdialog" aria-labelledby="confirm-career-text">
-              <p id="confirm-career-text">Tout reprendre au premier lundi&nbsp;? Les jours gagnés et l’annonce du répondeur seront effacés.</p>
+              <p id="confirm-career-text" data-t="title.confirm"></p>
               <div class="confirm-buttons">
-                <button id="btn-career-yes" class="btn btn-danger" type="button">Oui, tout effacer</button>
-                <button id="btn-career-no" class="btn" type="button">Annuler</button>
+                <button id="btn-career-yes" class="btn btn-danger" type="button" data-t="title.confirm.yes"></button>
+                <button id="btn-career-no" class="btn" type="button" data-t="title.confirm.no"></button>
               </div>
             </div>
-            <div id="tester-panel" class="tester hidden" aria-label="Mode testeur">
-              <div class="tester-modes" role="radiogroup" aria-label="Mode de jeu">
-                <button id="btn-mode-normal" class="tester-mode" type="button" role="radio" aria-checked="true">Normal</button>
-                <button id="btn-mode-god" class="tester-mode" type="button" role="radio" aria-checked="false">God</button>
+            <div id="tester-panel" class="tester hidden" data-t-label="tester.label">
+              <div class="tester-modes" role="radiogroup" data-t-label="tester.modes">
+                <button id="btn-mode-normal" class="tester-mode" type="button" role="radio" aria-checked="true" data-t="tester.normal"></button>
+                <button id="btn-mode-god" class="tester-mode" type="button" role="radio" aria-checked="false" data-t="tester.god"></button>
               </div>
               <div id="tester-god" class="tester-god hidden">
-                <label class="tester-row">Jour de départ
+                <label class="tester-row"><span data-t="tester.day"></span>
                   <select id="tester-day"></select>
                 </label>
-                <label class="tester-row">Étape
+                <label class="tester-row"><span data-t="tester.stage"></span>
                   <select id="tester-stage"></select>
                 </label>
-                <p class="tester-note">Étape forcée, carrière à part.</p>
+                <p class="tester-note" data-t="tester.note"></p>
               </div>
             </div>
             <form id="tester-login" class="tester-login hidden" autocomplete="off">
-              <input id="tester-pass" type="password" placeholder="Mot de passe testeur" aria-label="Mot de passe testeur" autocomplete="off" />
-              <button class="btn" type="submit">OK</button>
+              <input id="tester-pass" type="password" data-t-placeholder="tester.pass" data-t-label="tester.pass" autocomplete="off" />
+              <button class="btn" type="submit" data-t="tester.ok"></button>
               <p id="tester-msg" class="tester-msg" aria-live="polite"></p>
             </form>
-            <button id="btn-lock" class="btn-lock" type="button" aria-label="Mode testeur">🔒</button>
+            <button id="btn-lock" class="btn-lock" type="button" data-t-label="tester.label">🔒</button>
           </div>
         </section>
 
-        <section id="screen-pause" class="screen hidden" aria-labelledby="pause-title">
+        <section id="screen-pause" class="screen hidden" role="dialog" aria-modal="true" aria-labelledby="pause-title">
           <div class="card pause-card">
-            <h2 id="pause-title">Pause</h2>
-            <p class="muted">Le temps s’est arrêté. Même le téléphone retient son souffle.</p>
-            <p id="pause-week" class="pause-week hidden"><b>Cette semaine</b><span id="pause-week-text"></span></p>
+            <h2 id="pause-title" data-t="pause.title"></h2>
+            <p class="muted" data-t="pause.text"></p>
+            <p id="pause-week" class="pause-week hidden"><b data-t="pause.week"></b><span id="pause-week-text"></span></p>
             <div class="stack">
-              <button id="btn-resume" class="btn btn-primary" type="button">Reprendre</button>
-              <button id="btn-pause-carnet" class="btn hidden" type="button">Carnet des collègues</button>
-              <button id="btn-pause-help" class="btn" type="button">Comment jouer&nbsp;?</button>
-              <button id="btn-restart" class="btn" type="button">Recommencer la journée</button>
+              <button id="btn-resume" class="btn btn-primary" type="button" data-t="pause.resume"></button>
+              <button id="btn-pause-carnet" class="btn hidden" type="button" data-t="pause.carnet"></button>
+              <button id="btn-pause-help" class="btn" type="button" data-t="pause.help"></button>
+              <button id="btn-restart" class="btn" type="button" aria-expanded="false" aria-controls="confirm-restart" data-t="pause.restart"></button>
+              <div id="confirm-restart" class="confirm hidden" role="alertdialog" aria-labelledby="confirm-restart-text">
+                <p id="confirm-restart-text" data-t="pause.restart.confirm"></p>
+                <div class="confirm-buttons">
+                  <button id="btn-restart-yes" class="btn btn-danger" type="button" data-t="pause.restart.yes"></button>
+                  <button id="btn-restart-no" class="btn" type="button" data-t="pause.restart.no"></button>
+                </div>
+              </div>
               <button id="btn-music" class="btn btn-toggle" type="button" aria-pressed="true">
-                <span>Musique</span><span class="toggle-state" aria-hidden="true"></span>
+                <span data-t="pause.music"></span><span class="toggle-state" aria-hidden="true"></span>
               </button>
               <button id="btn-aid" class="btn btn-toggle" type="button" aria-pressed="true">
-                <span>Aide&nbsp;: formules déjà dites</span><span class="toggle-state" aria-hidden="true"></span>
+                <span data-t="pause.aid"></span><span class="toggle-state" aria-hidden="true"></span>
               </button>
             </div>
-            <p class="copyright">©&nbsp;2026 Lucas&nbsp;Tuzi&nbsp;– Tous&nbsp;droits&nbsp;réservés</p>
+            <p class="copyright" data-t="copyright"></p>
           </div>
         </section>
 
-        <section id="screen-help" class="screen hidden" aria-labelledby="help-title">
+        <section id="screen-help" class="screen hidden" role="dialog" aria-modal="true" aria-labelledby="help-title">
           <div class="card help-card">
-            <h2 id="help-title">Comment jouer&nbsp;?</h2>
+            <h2 id="help-title" data-t="help.title"></h2>
             <ul class="rules">
-              <li><b>Le téléphone sonne&nbsp;?</b> Décrochez, et promettez d’arriver dans cinq minutes. Toujours cinq. Lisez son ton (calme, sous pression, à cran) avant de choisir la réponse sûre, culottée ou drôle. Et jamais deux fois la même formule à la même personne&nbsp;: ils s’en souviennent.</li>
-              <li><b>Pas décroché&nbsp;?</b> L’appel laisse un message sur le répondeur. Rien ne se périme&nbsp;: écoutez, puis rappelez quand vous voulez. Les messages restés le soir pèsent un peu sur le bilan.</li>
-              <li><b>L’humeur d’Ando</b> baisse avec les sonneries et les formules resservies, et remonte au café. Grognon, il répond plus sec. Jamais de quoi finir la journée plus tôt.</li>
-              <li><b>Le soir, un bilan.</b> La journée va toujours jusqu’à 17&nbsp;h&nbsp;30. Bien gérer le téléphone fait avancer la carrière&nbsp;: d’autres choses arriveront au cagibi.</li>
-              <li><b>Le temps</b> ralentit pendant les appels. Le bouton <b>⏩</b> l’accélère quand tout est calme&nbsp;; il se coupe dès que ça sonne.</li>
-            </ul>
+              <li data-t="help.rule1"></li>
+              <li data-t="help.rule2"></li>
+              <li data-t="help.rule3"></li>
+              <li data-t="help.rule4"></li>
+              <li data-t="help.rule5"></li>
+</ul>
             <ul id="help-chain" class="rules rules-chain hidden"></ul>
-            <p class="controls controls-touch">Touchez le sol pour marcher, un objet pour l’utiliser, glissez pour regarder autour. Les gros boutons du bas font le reste, et la ligne au-dessus vous dit quoi faire.</p>
-            <p class="controls controls-keys"><kbd>ZQSD</kbd>/<kbd>WASD</kbd>/flèches ou clic pour marcher · <kbd>E</kbd> ou <kbd>Espace</kbd> pour agir · <kbd>1</kbd>–<kbd>4</kbd> pour répondre · <kbd>Échap</kbd> pause</p>
-            <button id="btn-help-back" class="btn btn-primary" type="button">Compris</button>
+            <p class="controls controls-touch" data-t="help.touch"></p>
+            <p class="controls controls-keys" data-t="title.keys"></p>
+            <button id="btn-help-back" class="btn btn-primary" type="button" data-t="help.back"></button>
           </div>
         </section>
 
-        <section id="screen-end" class="screen hidden" aria-labelledby="end-title">
+        <section id="screen-end" class="screen hidden" role="dialog" aria-modal="true" aria-labelledby="end-title">
           <div class="card end-card">
-            <p class="end-kicker" id="end-kicker">Rapport de fin de journée</p>
+            <p class="end-kicker" id="end-kicker" data-t="end.kicker"></p>
             <h2 id="end-title" class="end-rank"></h2>
             <p id="end-comment" class="muted"></p>
             <div id="end-reasons" class="end-reasons hidden"></div>
             <dl id="end-stats" class="end-stats"></dl>
             <div id="end-week" class="end-week hidden"></div>
             <ul id="end-stories" class="end-stories hidden"></ul>
-            <ul id="end-adoption" class="end-adoption hidden" aria-label="Les outils dans l’étage"></ul>
+            <ul id="end-adoption" class="end-adoption hidden" data-t-label="end.adoption"></ul>
             <p id="end-epilogue" class="end-epilogue"></p>
-            <p id="end-joke" class="tip end-joke hidden" role="note"><b>Blague du jour</b><span id="end-joke-text"></span></p>
+            <p id="end-joke" class="tip end-joke hidden" role="note"><b data-t="end.joke"></b><span id="end-joke-text"></span></p>
             <p id="end-hint" class="end-hint hidden"></p>
-            <button id="btn-again" class="btn btn-primary" type="button">Journée suivante</button>
+            <button id="btn-again" class="btn btn-primary" type="button" data-t="end.again"></button>
           </div>
         </section>
 
-        <section id="screen-review" class="screen hidden" aria-labelledby="review-title">
+        <section id="screen-review" class="screen hidden" role="dialog" aria-modal="true" aria-labelledby="review-title">
           <div class="card review-card">
-            <p id="review-kicker" class="end-kicker">Vendredi soir</p>
+            <p id="review-kicker" class="end-kicker" data-t="review.kicker"></p>
             <div class="review-head">
               <div id="review-face" class="review-face" aria-hidden="true"></div>
               <div class="review-id">
-                <h2 id="review-title">Odile</h2>
+                <h2 id="review-title" data-t="review.title"></h2>
                 <span id="review-role" class="review-role"></span>
               </div>
               <ol id="review-dots" class="review-dots" aria-hidden="true"></ol>
             </div>
             <div id="review-body" class="review-body" aria-live="polite"></div>
-            <button id="btn-review-next" class="btn btn-primary" type="button">Suite</button>
+            <button id="btn-review-next" class="btn btn-primary" type="button" data-t="review.next"></button>
           </div>
         </section>
 
-        <section id="screen-news" class="screen hidden" aria-labelledby="news-title">
+        <section id="screen-news" class="screen hidden" role="dialog" aria-modal="true" aria-labelledby="news-title">
           <div class="card news-card">
-            <p class="end-kicker">Note de service</p>
+            <p class="end-kicker" data-t="news.kicker"></p>
             <h2 id="news-title"></h2>
             <p id="news-text" class="news-text"></p>
             <ul id="news-list" class="rules rules-chain news-list hidden"></ul>
-            <p id="news-tip" class="tip" role="note"><b>Astuce</b><span id="news-tip-text"></span></p>
-            <button id="btn-news-ok" class="btn btn-primary" type="button">Au travail</button>
+            <p id="news-tip" class="tip" role="note"><b data-t="news.tip"></b><span id="news-tip-text"></span></p>
+            <button id="btn-news-ok" class="btn btn-primary" type="button" data-t="news.ok"></button>
           </div>
         </section>
 
-        <section id="screen-machine" class="screen hidden" aria-labelledby="machine-scene-title">
+        <section id="screen-machine" class="screen hidden" role="dialog" aria-modal="true" aria-labelledby="machine-scene-title">
           <div class="card machine-card">
-            <p id="machine-scene-kicker" class="end-kicker">Le cagibi, 8&nbsp;h&nbsp;31</p>
+            <p id="machine-scene-kicker" class="end-kicker" data-t="machineScene.kicker"></p>
             <h2 id="machine-scene-title"></h2>
             <div id="machine-scene-body" class="machine-scene-body"></div>
-            <button id="btn-machine-next" class="btn btn-primary" type="button">Brancher le répondeur</button>
+            <button id="btn-machine-next" class="btn btn-primary" type="button" data-t="machineScene.next"></button>
           </div>
         </section>
 
-        <section id="screen-auto" class="screen hidden" aria-labelledby="auto-scene-title">
+        <section id="screen-auto" class="screen hidden" role="dialog" aria-modal="true" aria-labelledby="auto-scene-title">
           <div class="card machine-card auto-card">
-            <p id="auto-scene-kicker" class="end-kicker">Le bureau</p>
+            <p id="auto-scene-kicker" class="end-kicker" data-t="autoScene.kicker"></p>
             <h2 id="auto-scene-title"></h2>
             <div id="auto-scene-body" class="machine-scene-body"></div>
             <div class="auto-buttons">
-              <button id="btn-auto-next" class="btn btn-primary" type="button">Suite</button>
-              <button id="btn-auto-later" class="btn hidden" type="button">Plus tard</button>
+              <button id="btn-auto-next" class="btn btn-primary" type="button" data-t="autoScene.next"></button>
+              <button id="btn-auto-later" class="btn hidden" type="button" data-t="autoScene.later"></button>
             </div>
           </div>
         </section>
       </main>
 
-      <nav id="actions" class="actions off" aria-label="Actions">
+      <nav id="actions" class="actions off" data-t-label="actions.label">
         <div id="objective" class="objective" role="status" aria-live="polite">
-          <span class="objective-phone" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg><span id="objective-phone-state">calme</span></span>
+          <span class="objective-phone" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg><span id="objective-phone-state" data-t="objective.phone"></span></span>
           <span id="objective-text" class="objective-text"></span>
-          <button id="objective-go" class="objective-go hidden" type="button">Y aller</button>
+          <button id="objective-go" class="objective-go hidden" type="button" data-t="objective.go"></button>
           <span id="objective-cook" class="objective-cook hidden" aria-hidden="true"><span id="objective-cook-fill"></span></span>
         </div>
         <button id="ring-banner" class="act act-answer ring-banner hidden" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /><path class="led" d="M4 8h1v1H4zM7 8h1v1H7z" /></svg>
-          <span class="act-text"><span class="act-label">Décrocher</span><small id="ring-caller" class="act-sub"></small></span>
+          <span class="act-text"><span class="act-label" data-t="act.answer"></span><small id="ring-caller" class="act-sub"></small></span>
           <span id="ring-mood" class="ring-mood hidden"></span>
-          <kbd class="act-key">E</kbd>
-          <span class="guide-tag" aria-hidden="true">Touchez ici</span>
+          <kbd class="act-key" data-t="act.key"></kbd>
+          <span class="guide-tag" aria-hidden="true" data-t="act.touchHere"></span>
         </button>
         <div id="learn-bar" class="learn-bar hidden" role="group" aria-labelledby="learn-title">
           <div class="learn-top">
@@ -245,37 +252,37 @@
           <div class="learn-bottom">
             <span class="learn-track" aria-hidden="true"><span id="learn-fill" class="learn-fill"></span></span>
             <span id="learn-pct" class="learn-pct"></span>
-            <button id="learn-stop" class="learn-stop" type="button">Arrêter</button>
+            <button id="learn-stop" class="learn-stop" type="button" data-t="learn.stop"></button>
           </div>
         </div>
         <button id="act-mail" class="act" type="button">
           <svg class="act-icon act-icon-mail" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v8H1zm1 1v1h1v1h1v1h1v1h2V6h1V5h1V4h1V3zm0 3v3h8V6H9v1H8v1H4V7H3V6z" fill-rule="evenodd" /></svg>
           <svg class="act-icon act-icon-phone" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 0h6v1h1v10H9v1H3v-1H2V1h1zm0 2v7h6V2zm2 8v1h2v-1z" fill-rule="evenodd" /><path class="led" d="M4 3h4v1H4zm0 2h3v1H4z" /></svg>
-          <span class="act-text"><span class="act-label">Mails</span><small id="act-mail-sub" class="act-sub"></small></span>
+          <span class="act-text"><span class="act-label" data-t="act.mail"></span><small id="act-mail-sub" class="act-sub"></small></span>
           <span id="act-mail-badge" class="act-badge hidden"></span>
-          <span class="guide-tag" aria-hidden="true">Touchez ici</span>
+          <span class="guide-tag" aria-hidden="true" data-t="act.touchHere"></span>
         </button>
         <button id="act-studio" class="act act-studio hidden" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h10v10H1zm1 1v2h2V2zm3 0v2h5V2zM2 5v2h2V5zm3 0v2h5V5zM2 8v2h2V8zm3 0v2h5V8z" fill-rule="evenodd" /><path class="led" d="M6 6h3v1H6z" /></svg>
-          <span class="act-text"><span class="act-label">Atelier</span><small id="act-studio-sub" class="act-sub"></small></span>
+          <span class="act-text"><span class="act-label" data-t="act.studio"></span><small id="act-studio-sub" class="act-sub"></small></span>
           <span id="act-studio-badge" class="act-badge hidden"></span>
-          <span class="guide-tag" aria-hidden="true">Touchez ici</span>
+          <span class="guide-tag" aria-hidden="true" data-t="act.touchHere"></span>
         </button>
         <button id="act-machine" class="act act-machine hidden" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3h10v7H1zm1 1v3h8V4zm1 4v1h6V8z" fill-rule="evenodd" /><path class="led" d="M3 5h2v1H3zM7 5h2v1H7z" /></svg>
-          <span class="act-text"><span class="act-label">Répondeur</span><small id="act-machine-sub" class="act-sub"></small></span>
+          <span class="act-text"><span class="act-label" data-t="act.machine"></span><small id="act-machine-sub" class="act-sub"></small></span>
           <span id="act-machine-badge" class="act-badge hidden"></span>
-          <span class="guide-tag" aria-hidden="true">Touchez ici</span>
+          <span class="guide-tag" aria-hidden="true" data-t="act.touchHere"></span>
         </button>
         <button id="act-coffee" class="act" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 1h1v2H4zM6 1h1v2H6zM2 4h7v1h2v3H9v1H8v1H3V9H2zm7 2v1h1V6zM1 11h10v1H1z" fill-rule="evenodd" /></svg>
-          <span class="act-text"><span class="act-label">Café</span><small id="act-coffee-sub" class="act-sub"></small></span>
+          <span class="act-text"><span class="act-label" data-t="act.coffee"></span><small id="act-coffee-sub" class="act-sub"></small></span>
         </button>
         <button id="act-server" class="act" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h8v10H2zm1 1v2h6V2zm0 3v2h6V5zm0 3v2h6V8z" fill-rule="evenodd" /><path class="led" d="M7 2h1v1H7zM7 5h1v1H7zM7 8h1v1H7z" /></svg>
-          <span class="act-text"><span class="act-label">Serveurs</span><small id="act-server-sub" class="act-sub"></small></span>
+          <span class="act-text"><span class="act-label" data-t="act.server"></span><small id="act-server-sub" class="act-sub"></small></span>
         </button>
-        <aside id="status-card" class="status-card hidden" aria-label="État du jour"></aside>
+        <aside id="status-card" class="status-card hidden" data-t-label="status.label"></aside>
       </nav>
 
       <div id="toasts" class="toasts" aria-live="polite"></div>
@@ -283,7 +290,7 @@
       <button id="ring-float" class="ring-float hidden" type="button">
         <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg>
         <span id="ring-float-text" class="ring-float-text"></span>
-        <b class="ring-float-go">Décrocher</b>
+        <b class="ring-float-go" data-t="ringFloat.go"></b>
       </button>
 
       <section id="phone" class="panel phone hidden" role="dialog" aria-modal="false" aria-labelledby="phone-caller">
@@ -300,29 +307,29 @@
       <section id="machine" class="panel phone machine hidden" role="dialog" aria-modal="false" aria-labelledby="machine-title">
         <div class="phone-lcd">
           <span class="lcd-icon" aria-hidden="true">✇</span>
-          <span id="machine-title" class="phone-caller">Répondeur</span>
+          <span id="machine-title" class="phone-caller" data-t="machine.title"></span>
           <span id="machine-meta" class="phone-meta"></span>
         </div>
         <div id="machine-list" class="phone-log machine-list"></div>
         <div class="phone-choices">
-          <button id="machine-close" class="choice machine-close" type="button">Fermer</button>
+          <button id="machine-close" class="choice machine-close" type="button" data-t="machine.close"></button>
         </div>
       </section>
 
       <section id="studio" class="panel kitchen studio hidden" role="dialog" aria-modal="false" aria-labelledby="st-title">
         <div class="kit-bar st-bar">
-          <button id="st-back" class="kit-back hidden" type="button" aria-label="Retour">‹</button>
-          <span id="st-title" class="kit-title">Atelier</span>
-          <span id="st-points" class="st-points" title="Points de recherche"></span>
-          <button id="st-close" class="kit-close" type="button" aria-label="Fermer l’atelier">✕</button>
+          <button id="st-back" class="kit-back hidden" type="button" data-t-label="studio.back">‹</button>
+          <span id="st-title" class="kit-title" data-t="studio.title"></span>
+          <span id="st-points" class="st-points" data-t-title="studio.points"></span>
+          <button id="st-close" class="kit-close" type="button" data-t-label="studio.close">✕</button>
         </div>
         <div id="st-ring" class="kit-ring hidden"><button id="st-ring-text" class="kit-ring-answer" type="button"></button></div>
-        <div id="st-tabs" class="st-tabs" role="tablist" aria-label="Atelier">
-          <button class="st-tab" type="button" role="tab" data-tab="home">Outil</button>
-          <button class="st-tab" type="button" role="tab" data-tab="jobs">Services<span class="st-tab-n"></span></button>
-          <button class="st-tab" type="button" role="tab" data-tab="research">Recherche</button>
-          <button class="st-tab hidden" type="button" role="tab" data-tab="shop">Boutique</button>
-          <button class="st-tab" type="button" role="tab" data-tab="notebook">Carnet</button>
+        <div id="st-tabs" class="st-tabs" role="tablist" data-t-label="studio.title">
+          <button class="st-tab" type="button" role="tab" data-tab="home" data-t="studio.tab.home"></button>
+          <button class="st-tab" type="button" role="tab" data-tab="jobs"><span data-t="studio.tab.jobs"></span><span class="st-tab-n"></span></button>
+          <button class="st-tab" type="button" role="tab" data-tab="research" data-t="studio.tab.research"></button>
+          <button class="st-tab hidden" type="button" role="tab" data-tab="shop" data-t="studio.tab.shop"></button>
+          <button class="st-tab" type="button" role="tab" data-tab="notebook" data-t="studio.tab.notebook"></button>
         </div>
         <div id="st-body" class="kit-body st-body"></div>
         <div id="st-foot" class="kit-foot st-foot hidden"></div>
@@ -334,36 +341,36 @@
           <div class="visit-id">
             <span id="visit-name" class="visit-name"></span>
             <span id="visit-role" class="visit-role"></span>
-            <span id="visit-patience" class="visit-patience" role="meter" aria-valuemin="0" aria-valuemax="100"><span id="visit-patience-fill"></span></span>
+            <span id="visit-patience" class="visit-patience" role="meter" data-t-label="visit.patience" aria-valuemin="0" aria-valuemax="100"><span id="visit-patience-fill"></span></span>
           </div>
-          <button id="visit-close" class="win-close visit-close" type="button" aria-label="Repartir sans rien dire">✕</button>
+          <button id="visit-close" class="win-close visit-close" type="button" data-t-label="visit.close">✕</button>
         </div>
         <div id="visit-log" class="phone-log"></div>
         <div id="visit-choices" class="phone-choices"></div>
       </section>
 
       <section id="colleague-card" class="panel phone colleague-card hidden" role="dialog" aria-modal="false" aria-labelledby="cc-name">
-        <button id="cc-close" class="win-close visit-close cc-close" type="button" aria-label="Fermer la fiche">✕</button>
+        <button id="cc-close" class="win-close visit-close cc-close" type="button" data-t-label="card.close">✕</button>
         <div id="cc-body" class="cc-body"></div>
         <div class="phone-choices">
-          <button id="cc-go" class="choice primary cc-go" type="button">Aller le voir</button>
+          <button id="cc-go" class="choice primary cc-go" type="button" data-t="card.go"></button>
         </div>
       </section>
 
       <section id="mail" class="panel mail hidden" role="dialog" aria-modal="false" aria-labelledby="mail-title">
         <div class="win-bar">
-          <button id="mail-back" class="win-back hidden" type="button" aria-label="Retour à la boîte de réception">‹ Boîte</button>
-          <span id="mail-title" class="win-title">Messagerie — ando@entreprise.fr</span>
-          <button id="mail-close" class="win-close" type="button" aria-label="Fermer la messagerie">✕</button>
+          <button id="mail-back" class="win-back hidden" type="button" data-t="mail.back" data-t-label="mail.back.label"></button>
+          <span id="mail-title" class="win-title" data-t="mail.title"></span>
+          <button id="mail-close" class="win-close" type="button" data-t-label="mail.close">✕</button>
         </div>
         <div id="mail-ring" class="win-ring hidden">
           <button id="mail-ring-text" class="win-ring-answer" type="button"></button>
-          <button id="mail-ring-ticket" class="win-ring-ticket hidden" type="button">→ Ticket</button>
+          <button id="mail-ring-ticket" class="win-ring-ticket hidden" type="button" data-t="mail.ticket"></button>
         </div>
         <div id="mail-tools" class="mail-tools hidden">
-          <div id="mail-tabs" class="mail-tabs hidden" role="tablist">
-            <button id="mail-tab-inbox" class="mail-tab active" type="button" role="tab" aria-selected="true">Boîte de réception</button>
-            <button id="mail-tab-desk" class="mail-tab" type="button" role="tab" aria-selected="false">Tickets</button>
+          <div id="mail-tabs" class="mail-tabs hidden" role="tablist" data-t-label="mail.tabs">
+            <button id="mail-tab-inbox" class="mail-tab active" type="button" role="tab" aria-selected="true" data-t="mail.tab.inbox"></button>
+            <button id="mail-tab-desk" class="mail-tab" type="button" role="tab" aria-selected="false" data-t="mail.tab.desk"></button>
           </div>
           <div class="mail-auto">
             <span id="mail-ai" class="mail-ai hidden"></span>
@@ -373,7 +380,7 @@
         <div id="mail-strip" class="mail-strip hidden" aria-live="polite"></div>
         <div id="mail-desk" class="mail-desk hidden"></div>
         <div id="mail-body" class="mail-body">
-          <ul id="mail-list" class="mail-list" aria-label="Boîte de réception"></ul>
+          <ul id="mail-list" class="mail-list" data-t-label="mail.tab.inbox"></ul>
           <article id="mail-read" class="mail-read"></article>
         </div>
       </section>
