@@ -8,21 +8,21 @@
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Santi" />
+    <meta name="apple-mobile-web-app-title" content="An’doSim" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="description" content="SantiMulator — une journée dans la peau de Santi, informaticien. « Ah, juste cinq minoutes, ja arrrive. »" />
-    <meta property="og:title" content="SantiMulator" />
-    <meta property="og:description" content="Une journée dans la peau de Santi, informaticien. « Cinq minoutes, ja arrrive. »" />
+    <meta name="description" content="An’doSim — une journée dans la peau d’Ando, informaticien. « Ah, juste cinq minoutes, ja arrrive. »" />
+    <meta property="og:title" content="An’doSim" />
+    <meta property="og:description" content="Une journée dans la peau d’Ando, informaticien. « Cinq minoutes, ja arrrive. »" />
     <meta property="og:image" content="https://tuzilucas.github.io/SantiMulator---Jeu/jaquette.png" />
     <meta property="og:url" content="https://tuzilucas.github.io/SantiMulator---Jeu/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>SantiMulator</title>
+    <title>An’doSim</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect x='4' y='1' width='8' height='1' fill='%232a2231'/%3E%3Crect x='3' y='2' width='10' height='7' fill='%23e6ad85'/%3E%3Crect x='3' y='8' width='10' height='3' fill='%23a59d93'/%3E%3Crect x='5' y='5' width='1' height='2' fill='%232a2231'/%3E%3Crect x='10' y='5' width='1' height='2' fill='%232a2231'/%3E%3Crect x='2' y='11' width='12' height='5' fill='%234f87c9'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-Cv5y1aZ6.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DrNURLzA.css">
+    <script type="module" crossorigin src="./assets/index-CeFMAVKL.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BfpK1MY4.css">
   </head>
   <body>
     <div id="app">
@@ -33,7 +33,7 @@
           <span id="hud-time" class="lcd">08:30</span>
           <span class="hud-progress" aria-hidden="true"><span id="hud-progress-bar"></span></span>
         </div>
-        <div class="hud-block hud-zen" title="Humeur de Santi">
+        <div class="hud-block hud-zen" title="Humeur d’Ando">
           <span id="hud-mood-label" class="hud-label">Humeur</span>
           <span id="hud-mood" class="hud-mood">Sifflote</span>
           <span class="zen-bar" role="meter" aria-label="Humeur" aria-valuemin="0" aria-valuemax="100" id="zen-meter"><span id="zen-fill"></span></span>
@@ -54,7 +54,7 @@
       </header>
 
       <main id="stage" class="stage">
-        <canvas id="world" aria-label="Le bureau de Santi"></canvas>
+        <canvas id="world" aria-label="Le bureau d’Ando"></canvas>
         <div id="overlay" class="overlay" aria-hidden="true">
           <div id="bubble" class="bubble hidden"></div>
           <div id="tooltip" class="tooltip hidden"></div>
@@ -66,13 +66,13 @@
           <span class="sb-track" aria-hidden="true"><span id="sb-fill" class="sb-fill"></span></span>
         </button>
         <div id="prompt" class="prompt hidden" aria-live="polite"></div>
-        <button id="recenter" class="recenter hidden" type="button" aria-label="Recentrer la vue sur Santi">Santi</button>
+        <button id="recenter" class="recenter hidden" type="button" aria-label="Recentrer la vue sur Ando">Ando</button>
 
         <section id="screen-title" class="screen" aria-labelledby="title-logo">
           <div class="card title-card">
             <canvas id="title-santi" class="title-santi" width="20" height="32" aria-hidden="true"></canvas>
             <div>
-              <h1 id="title-logo" class="logo">Santi<span>Mulator</span></h1>
+              <h1 id="title-logo" class="logo">An’do<span>Sim</span></h1>
               <p class="tagline">«&nbsp;Ah, juste cinq minoutes, ja arrrive.&nbsp;»</p>
             </div>
             <ul class="pictos" aria-label="En bref">
@@ -87,6 +87,7 @@
             <button id="btn-start" class="btn btn-primary" type="button">Commencer — Lundi</button>
             <button id="btn-help" class="btn btn-link" type="button">Comment jouer&nbsp;?</button>
             <button id="btn-new-career" class="btn btn-link hidden" type="button">Nouvelle carrière</button>
+            <p class="copyright">©&nbsp;2026 Lucas&nbsp;Tuzi&nbsp;– Tous&nbsp;droits&nbsp;réservés</p>
             <div id="confirm-career" class="confirm hidden" role="alertdialog" aria-labelledby="confirm-career-text">
               <p id="confirm-career-text">Tout reprendre au premier lundi&nbsp;? Les jours gagnés et l’annonce du répondeur seront effacés.</p>
               <div class="confirm-buttons">
@@ -135,6 +136,7 @@
                 <span>Aide&nbsp;: formules déjà dites</span><span class="toggle-state" aria-hidden="true"></span>
               </button>
             </div>
+            <p class="copyright">©&nbsp;2026 Lucas&nbsp;Tuzi&nbsp;– Tous&nbsp;droits&nbsp;réservés</p>
           </div>
         </section>
 
@@ -144,7 +146,7 @@
             <ul class="rules">
               <li><b>Le téléphone sonne&nbsp;?</b> Décrochez, et promettez d’arriver dans cinq minutes. Toujours cinq. Lisez son ton (calme, sous pression, à cran) avant de choisir la réponse sûre, culottée ou drôle. Et jamais deux fois la même formule à la même personne&nbsp;: ils s’en souviennent.</li>
               <li><b>Pas décroché&nbsp;?</b> L’appel laisse un message sur le répondeur. Rien ne se périme&nbsp;: écoutez, puis rappelez quand vous voulez. Les messages restés le soir pèsent un peu sur le bilan.</li>
-              <li><b>L’humeur de Santi</b> baisse avec les sonneries et les formules resservies, et remonte au café. Grognon, il répond plus sec. Jamais de quoi finir la journée plus tôt.</li>
+              <li><b>L’humeur d’Ando</b> baisse avec les sonneries et les formules resservies, et remonte au café. Grognon, il répond plus sec. Jamais de quoi finir la journée plus tôt.</li>
               <li><b>Le soir, un bilan.</b> La journée va toujours jusqu’à 17&nbsp;h&nbsp;30. Bien gérer le téléphone fait avancer la carrière&nbsp;: d’autres choses arriveront au cagibi.</li>
               <li><b>Le temps</b> ralentit pendant les appels. Le bouton <b>⏩</b> l’accélère quand tout est calme&nbsp;; il se coupe dès que ça sonne.</li>
             </ul>
@@ -351,7 +353,7 @@
       <section id="mail" class="panel mail hidden" role="dialog" aria-modal="false" aria-labelledby="mail-title">
         <div class="win-bar">
           <button id="mail-back" class="win-back hidden" type="button" aria-label="Retour à la boîte de réception">‹ Boîte</button>
-          <span id="mail-title" class="win-title">Messagerie — santi@entreprise.fr</span>
+          <span id="mail-title" class="win-title">Messagerie — ando@entreprise.fr</span>
           <button id="mail-close" class="win-close" type="button" aria-label="Fermer la messagerie">✕</button>
         </div>
         <div id="mail-ring" class="win-ring hidden">

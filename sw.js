@@ -1,5 +1,5 @@
 /**
- * Service worker de SantiMulator — gabarit.
+ * Service worker d’An’doSim — gabarit.
  *
  * Ce fichier n'est pas servi tel quel : au `vite build`, le greffon `pwa`
  * (tools/vite-pwa.mjs) remplace les trois marqueurs ci-dessous et écrit
@@ -15,12 +15,12 @@
  *    préchauffé à l'installation pour qu'un premier lancement hors ligne
  *    garde la bonne typographie.
  */
-const VERSION = '490b47d5f1da';
+const VERSION = 'e30160805e65';
 const PRECACHE_URLS = [
-  "./assets/autoscene-BnyQQEkw.js",
-  "./assets/index-Cv5y1aZ6.js",
-  "./assets/index-DrNURLzA.css",
-  "./assets/machinescene-Bwv7Pl2i.js",
+  "./assets/autoscene-XX9wHZZw.js",
+  "./assets/index-BfpK1MY4.css",
+  "./assets/index-CeFMAVKL.js",
+  "./assets/machinescene-BulJOqCZ.js",
   "./assets/music-CW-sv54d.js",
   "./icons/apple-touch-icon.png",
   "./icons/icon-192.png",

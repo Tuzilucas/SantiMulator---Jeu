@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "SantiMulator",
-  "short_name": "Santi",
-  "description": "Une journée dans la peau de Santi, informaticien : répondre aux appels, trier les mails et garder son calme. « Cinq minutes, j’arrive. »",
+  "name": "An’doSim",
+  "short_name": "An’doSim",
+  "description": "Une journée dans la peau d’Ando, informaticien : répondre aux appels, trier les mails et garder son calme. « Cinq minutes, j’arrive. »",
   "lang": "fr",
   "dir": "ltr",
   "start_url": "./",
