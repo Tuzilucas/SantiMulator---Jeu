@@ -14,6 +14,14 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 1.3 « Finition : interface et textes » (16/10/2026)
+- Tout se joue au doigt seul, à la souris seule ou au clavier seul ; le focus suit les fenêtres.
+- Boutons plus grands (44 px), texte plus lisible (15 px), contrastes renforcés, plus aucun texte coupé, même sur petit téléphone.
+- Les notifications restent le temps d'être lues et se ferment d'un toucher ; au plus deux fenêtres le matin.
+- « Recommencer la journée » demande confirmation et recommence vraiment à 8 h 30 ; « Continuer » propose le bon jour après un bilan.
+- Ando parle de nouveau comme Ando : des centaines de répliques réécrites, plus variées, avec son accent.
+- Chaque collègue garde son tutoiement ou son vouvoiement partout ; les appelants ne se présentent plus en se nommant ; les choix des visites sont vraiment différents.
+
 ### 1.2 « An'doSim » (15/10/2026)
 - Le jeu s'appelle désormais **An'doSim**, et son héros **Ando** (Antonio, venu d'Italie). Vos parties en cours se rechargent telles quelles.
 - Nouvelle introduction au cagibi : la mine, le poste d'informaticien, le bureau en travaux « pour cinq minutes ».
