@@ -14,6 +14,14 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 1.4 « Finition : dessin et son » (16/10/2026)
+- Les humeurs des collègues se lisent à la forme des pictos, même sur petit téléphone ; le décor partage une seule palette.
+- Cagibi soigné, découverte du bureau de 25 m² retravaillée, pieds sur le bureau, animations réduites si votre téléphone le demande.
+- Pendant une visite ou à l'atelier, la vue montre bien le collègue, Ando ou l'écran du PC ; les messages ne cachent plus rien.
+- Chaque collègue a sa propre voix (Ando la plus grave), le répondeur a son propre déclic, les bouderies s'entendent, plusieurs mails ne sonnent qu'une fois.
+- Les sons longs se coupent à la pause et quand le jeu passe en arrière-plan.
+- Nouvelle jaquette, sans aucun nom de logiciel du commerce.
+
 ### 1.3 « Finition : interface et textes » (16/10/2026)
 - Tout se joue au doigt seul, à la souris seule ou au clavier seul ; le focus suit les fenêtres.
 - Boutons plus grands (44 px), texte plus lisible (15 px), contrastes renforcés, plus aucun texte coupé, même sur petit téléphone.
