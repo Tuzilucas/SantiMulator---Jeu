@@ -14,6 +14,14 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 1.5 « Finition : technique et qualité » (21/10/2026)
+- Les logiciels du jeu ont leurs propres noms et leurs logos en pixel art : Xecel, WBA, PowerVirgule, Power Nuts, Power CEO, Crotal et Salsa, chacun avec sa description dans l'atelier.
+- Démarrage plus léger : le jeu se charge en morceaux, et les mails ne sont téléchargés qu'à l'étape où ils servent.
+- Le bilan du soir se joue au clavier seul ; la musique sait quand le chef est là.
+- Petit téléphone : les onglets de l'atelier et la barre du haut tiennent en entier, plus aucun texte coupé.
+- Textes justes : l'IA s'annonce au bon nombre d'appels, la boîte mail au bon nombre de mails, et la chaise d'Ando n'est plus citée quand Gérard l'a empruntée.
+- Les carrières des versions précédentes se reprennent sans rien perdre.
+
 ### 1.4 « Finition : dessin et son » (16/10/2026)
 - Les humeurs des collègues se lisent à la forme des pictos, même sur petit téléphone ; le décor partage une seule palette.
 - Cagibi soigné, découverte du bureau de 25 m² retravaillée, pieds sur le bureau, animations réduites si votre téléphone le demande.
