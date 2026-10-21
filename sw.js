@@ -2,26 +2,46 @@
  * Service worker d’An’doSim — gabarit.
  *
  * Ce fichier n'est pas servi tel quel : au `vite build`, le greffon `pwa`
- * (tools/vite-pwa.mjs) remplace les trois marqueurs ci-dessous et écrit
- * dist/sw.js. La version change dès qu'un fichier du build change, ce qui
- * déclenche la mise à jour et le nettoyage des anciens caches.
+ * (tools/vite-pwa.mjs) remplace les marqueurs ci-dessous et écrit dist/sw.js.
+ * La version change dès qu'un fichier du build change, ce qui déclenche la
+ * mise à jour et le nettoyage des anciens caches.
  *
  * Stratégies :
- *  - ressources du build (JS, CSS, icônes, manifeste) : précachées à
+ *  - ressources du build (JS, CSS, polices, icônes, manifeste) : précachées à
  *    l'installation, servies depuis le cache (leurs noms sont hachés) ;
- *  - navigation (la page) : réseau d'abord avec délai court, sinon la page
- *    en cache — le jeu se lance hors ligne ;
- *  - polices Google : « stale-while-revalidate » dans un cache à part,
- *    préchauffé à l'installation pour qu'un premier lancement hors ligne
- *    garde la bonne typographie.
+ *  - navigation (la page) : la page de la version active, en cache — le jeu
+ *    se lance hors ligne, et une version ne change qu'à son activation.
+ * Rien n'est chargé d'un autre site (TEC-0-03) : les polices font partie du build.
+ *
+ * Mise à jour (TEC-0-39) : une nouvelle version s'installe en arrière-plan puis
+ * **attend**. Elle ne prend la main que lorsque la page le lui demande
+ * (message `activer`, envoyé par src/pwa.ts à l'écran titre, aucune journée en
+ * cours) ou quand tous les onglets du jeu sont fermés. La page en cours garde
+ * donc l'ancienne version et son cache jusqu'au bout : ses morceaux chargés à
+ * la demande (musique, scènes) restent disponibles, même hors ligne.
  */
-const VERSION = '1bb9ef63986c';
+const VERSION = 'd459bdf6f8e8';
+/** Numéro de version du jeu (package.json), annoncé à la page avant la mise à jour. */
+const APP_VERSION = '1.5.0';
 const PRECACHE_URLS = [
-  "./assets/autoscene-DKgQ-h8y.js",
-  "./assets/index-B0CP-Lz_.js",
-  "./assets/index-ba0bb6Qs.css",
-  "./assets/machinescene-Cquvb831.js",
+  "./assets/automation-DmWasTIk.js",
+  "./assets/autoscene-ZG8DbXyh.js",
+  "./assets/index-B0kzJf_D.css",
+  "./assets/index-s7RL8zTa.js",
+  "./assets/inter-latin-400-normal-C38fXH4l.woff2",
+  "./assets/inter-latin-500-normal-Cerq10X2.woff2",
+  "./assets/inter-latin-600-normal-LgqL8muc.woff2",
+  "./assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+  "./assets/machinescene-ggj_XaFv.js",
   "./assets/music-CFkL0EcI.js",
+  "./assets/paquet-bulles-D2f4T6qw.js",
+  "./assets/paquet-mails-Dou9NJYR.js",
+  "./assets/pixelify-sans-latin-400-normal-DLrIX9QE.woff2",
+  "./assets/pixelify-sans-latin-600-normal-Dd_Dy7u5.woff2",
+  "./assets/pixelify-sans-latin-700-normal-D3Xxx3QE.woff2",
+  "./assets/portrait-D1PpEayw.js",
+  "./assets/textes-C7r-w8nM.js",
+  "./assets/vt323-latin-400-normal-wDgJuOC9.woff2",
   "./icons/apple-touch-icon.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
@@ -29,15 +49,13 @@ const PRECACHE_URLS = [
   "./index.html",
   "./jaquette-dos.png",
   "./jaquette.png",
-  "./manifest.webmanifest"
+  "./manifest.webmanifest",
+  "./polices/OFL.txt"
 ];
-const FONT_CSS_URLS = ["https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Inter:wght@400;500;600;700&display=swap"];
 
 const PREFIX = 'santimulator-';
 const PRECACHE = `${PREFIX}app-${VERSION}`;
-const FONTS = `${PREFIX}polices-v1`;
-const FONT_HOSTS = new Set(['fonts.googleapis.com', 'fonts.gstatic.com']);
-/** Au-delà, une page réseau trop lente cède la place à la copie en cache. */
+/** Première visite sans cache : au-delà, la page réseau est abandonnée. */
 const NAV_TIMEOUT_MS = 3000;
 
 const scopeUrl = (path) => new URL(path, self.registration.scope).href;
@@ -48,19 +66,23 @@ self.addEventListener('install', (event) => {
     (async () => {
       const cache = await caches.open(PRECACHE);
       await cache.addAll(PRECACHE_URLS.map(scopeUrl));
-      // Polices : au mieux, sans bloquer l'installation hors ligne.
-      await warmFonts().catch(() => undefined);
-      await self.skipWaiting();
+      // Pas de skipWaiting ici : la nouvelle version attend que la page la demande.
     })(),
   );
+});
+
+self.addEventListener('message', (event) => {
+  const data = event.data;
+  if (data === 'activer') void self.skipWaiting();
+  else if (data === 'version' && event.source) event.source.postMessage({ type: 'version', version: APP_VERSION });
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     (async () => {
-      const keep = new Set([PRECACHE, FONTS]);
+      // Les anciens caches du jeu (y compris celui des polices Google des versions 1.0 à 1.4) partent.
       const names = await caches.keys();
-      await Promise.all(names.filter((n) => n.startsWith(PREFIX) && !keep.has(n)).map((n) => caches.delete(n)));
+      await Promise.all(names.filter((n) => n.startsWith(PREFIX) && n !== PRECACHE).map((n) => caches.delete(n)));
       await self.clients.claim();
     })(),
   );
@@ -70,11 +92,6 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
-
-  if (FONT_HOSTS.has(url.hostname)) {
-    event.respondWith(staleWhileRevalidate(event, req));
-    return;
-  }
   if (url.origin !== self.location.origin) return;
 
   if (req.mode === 'navigate') {
@@ -84,62 +101,30 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(cacheFirst(req));
 });
 
-/** Réseau d'abord (avec délai), puis la page précachée. */
+/**
+ * La page vient du cache de la version active : elle va toujours avec ses
+ * scripts (pas de nouvelle page sur d'anciens scripts, ni l'inverse). Le
+ * réseau ne sert qu'à la toute première visite, ou si le cache a été vidé.
+ */
 async function navigate(req) {
   const cache = await caches.open(PRECACHE);
+  const cached = (await cache.match(req, { ignoreSearch: true, ignoreVary: true })) ?? (await cache.match(INDEX_URL, { ignoreVary: true }));
+  if (cached) return cached;
   try {
-    const res = await withTimeout(fetch(req), NAV_TIMEOUT_MS);
-    if (res.ok) return res;
-    throw new Error(`HTTP ${res.status}`);
+    return await withTimeout(fetch(req), NAV_TIMEOUT_MS);
   } catch {
-    const cached = (await cache.match(req, { ignoreSearch: true })) ?? (await cache.match(INDEX_URL));
-    return cached ?? Response.error();
+    return Response.error();
   }
 }
 
-/** Ressources du build : le cache, sinon le réseau (sans mise en cache des inconnues). */
+/**
+ * Ressources du build : le cache, sinon le réseau (sans mise en cache des inconnues).
+ * ignoreVary : un script module porte l'en-tête Origin, et un serveur qui répond « Vary: Origin »
+ * ferait rater le cache (noms hachés : aucun risque de confusion).
+ */
 async function cacheFirst(req) {
-  const cached = await caches.match(req, { ignoreSearch: true, cacheName: PRECACHE });
+  const cached = await caches.match(req, { ignoreSearch: true, ignoreVary: true, cacheName: PRECACHE });
   return cached ?? fetch(req);
-}
-
-/** Répond depuis le cache tout de suite et rafraîchit en arrière-plan. */
-async function staleWhileRevalidate(event, req) {
-  const cache = await caches.open(FONTS);
-  const cached = await cache.match(req, { ignoreVary: true });
-  const refresh = fetch(req)
-    .then(async (res) => {
-      // Les réponses opaques (feuille CSS chargée sans CORS) sont acceptées.
-      if (res.ok || res.type === 'opaque') await cache.put(req, res.clone());
-      return res;
-    })
-    .catch(() => undefined);
-  if (cached) {
-    event.waitUntil(refresh);
-    return cached;
-  }
-  return (await refresh) ?? Response.error();
-}
-
-/** Télécharge les feuilles de polices et les fichiers qu'elles citent. */
-async function warmFonts() {
-  const cache = await caches.open(FONTS);
-  await Promise.all(
-    FONT_CSS_URLS.map(async (cssUrl) => {
-      const res = await fetch(cssUrl, { mode: 'cors' });
-      if (!res.ok) return;
-      const css = await res.clone().text();
-      await cache.put(cssUrl, res);
-      const files = [...css.matchAll(/url\((['"]?)(https:\/\/fonts\.gstatic\.com\/[^)'"]+)\1\)/g)].map((m) => m[2]);
-      await Promise.all(
-        files.map(async (f) => {
-          if (await cache.match(f, { ignoreVary: true })) return;
-          const r = await fetch(f, { mode: 'cors' });
-          if (r.ok) await cache.put(f, r);
-        }),
-      );
-    }),
-  );
 }
 
 function withTimeout(promise, ms) {
