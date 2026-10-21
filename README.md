@@ -14,6 +14,15 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 1.6 « Finition : règles » (21/10/2026)
+- Le bouton « Mails » ouvre toujours la messagerie, même quand le téléphone sonne.
+- Certains mails cachent une réponse piège : elle a l'air juste, mais il faut lire le mail pour la repérer.
+- Chaque galon rend Ando plus fort, mais son humeur bouge plus vite, dans les deux sens.
+- L'open space arrive avant l'IA, après le bureau de 25 m².
+- Moins d'appels au cagibi (une dizaine par jour), et 4 demandes par jour dans l'open space.
+- Les visites : l'astuce n'annonce plus la réponse, le résultat suit la phrase choisie, et « Noté dans le carnet » ne s'affiche que si le carnet apprend vraiment quelque chose.
+- Petit téléphone : les onglets de l'atelier tiennent en entier.
+
 ### 1.5 « Finition : technique et qualité » (21/10/2026)
 - Les logiciels du jeu ont leurs propres noms et leurs logos en pixel art : Xecel, WBA, PowerVirgule, Power Nuts, Power CEO, Crotal et Salsa, chacun avec sa description dans l'atelier.
 - Démarrage plus léger : le jeu se charge en morceaux, et les mails ne sont téléchargés qu'à l'étape où ils servent.
