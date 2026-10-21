@@ -20,27 +20,27 @@
  * donc l'ancienne version et son cache jusqu'au bout : ses morceaux chargés à
  * la demande (musique, scènes) restent disponibles, même hors ligne.
  */
-const VERSION = 'd459bdf6f8e8';
+const VERSION = '76dc9bc512bf';
 /** Numéro de version du jeu (package.json), annoncé à la page avant la mise à jour. */
-const APP_VERSION = '1.5.0';
+const APP_VERSION = '1.6.0';
 const PRECACHE_URLS = [
-  "./assets/automation-DmWasTIk.js",
-  "./assets/autoscene-ZG8DbXyh.js",
-  "./assets/index-B0kzJf_D.css",
-  "./assets/index-s7RL8zTa.js",
+  "./assets/automation-g_BieVPP.js",
+  "./assets/autoscene-DqNhfQyv.js",
+  "./assets/index-BpgC-u9p.js",
+  "./assets/index-rIB73ut3.css",
   "./assets/inter-latin-400-normal-C38fXH4l.woff2",
   "./assets/inter-latin-500-normal-Cerq10X2.woff2",
   "./assets/inter-latin-600-normal-LgqL8muc.woff2",
   "./assets/inter-latin-700-normal-Yt3aPRUw.woff2",
-  "./assets/machinescene-ggj_XaFv.js",
+  "./assets/machinescene-C4KUJWZY.js",
   "./assets/music-CFkL0EcI.js",
-  "./assets/paquet-bulles-D2f4T6qw.js",
-  "./assets/paquet-mails-Dou9NJYR.js",
+  "./assets/paquet-bulles-CvyVhas_.js",
+  "./assets/paquet-mails-BdkwXrhG.js",
   "./assets/pixelify-sans-latin-400-normal-DLrIX9QE.woff2",
   "./assets/pixelify-sans-latin-600-normal-Dd_Dy7u5.woff2",
   "./assets/pixelify-sans-latin-700-normal-D3Xxx3QE.woff2",
   "./assets/portrait-D1PpEayw.js",
-  "./assets/textes-C7r-w8nM.js",
+  "./assets/textes-BTud2s0V.js",
   "./assets/vt323-latin-400-normal-wDgJuOC9.woff2",
   "./icons/apple-touch-icon.png",
   "./icons/icon-192.png",
