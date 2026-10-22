@@ -14,6 +14,14 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 1.7 « Chaque fichier se paie » (22/10/2026)
+- Les fichiers d'Ando vivent chez les collègues : plus un fichier est bon, plus il a d'utilisateurs et plus il rapporte de réputation… mais plus il casse (lecture seule, formule cassée, données perdues).
+- Un mauvais fichier a toujours son guignol : il s'en sert quand même, casse tout et rend des rapports faux qu'Ando doit corriger.
+- Les soucis arrivent en tickets, sur la porte et au téléphone ; un ticket laissé coûte de la réputation.
+- Nouvel onglet « Mes fichiers » au carnet : note, utilisateurs, solidité, confiance et guignol de chaque fichier, et les compétences par logiciel.
+- Le bilan du soir compte les tickets réparés et laissés.
+- Chaque collègue écrit ses tickets avec sa propre voix.
+
 ### 1.6 « Finition : règles » (21/10/2026)
 - Le bouton « Mails » ouvre toujours la messagerie, même quand le téléphone sonne.
 - Certains mails cachent une réponse piège : elle a l'air juste, mais il faut lire le mail pour la repérer.
