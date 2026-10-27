@@ -14,6 +14,12 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 2.1 « Première impression » (27/10/2026)
+- Ando parle plus varié : moins de tournures répétées, plus de questions et de répliques courtes, et des bulles qui réagissent à ce qui se passe (l'erreur à l'écran, l'appelant qui vient de raccrocher).
+- Son « ja » revient, mélangé à son franglais : « Ja l'ai faite », « Ai will back to faïve minoutes ».
+- Le cagibi, premier écran du jeu, est plus net et mieux cadré : plus de mur vide, le carton de la mine et le paillasson « CIAO » bien visibles.
+- Sur ordinateur, les noms longs des logiciels se coupent proprement.
+
 ### 2.0 « La vie de l'open space » (27/10/2026)
 - Ando parle maintenant un franglais approximatif avec l'accent italien : « Ai donte ondeurstende, ai will back to faïve minoutes. » Ses mails restent sans accent.
 - Les visites sont un vrai choix : trois réponses vraiment différentes (sérieuse, culottée, drôle), plus d'astuce qui donne la bonne ; on lit la fiche et le carnet du collègue.
