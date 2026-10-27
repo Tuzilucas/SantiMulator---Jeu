@@ -20,29 +20,29 @@
  * donc l'ancienne version et son cache jusqu'au bout : ses morceaux chargés à
  * la demande (musique, scènes) restent disponibles, même hors ligne.
  */
-const VERSION = '0f96424f391f';
+const VERSION = '5272b26d2311';
 /** Numéro de version du jeu (package.json), annoncé à la page avant la mise à jour. */
-const APP_VERSION = '2.1.0';
+const APP_VERSION = '3.0.0';
 const PRECACHE_URLS = [
-  "./assets/automation-D48rn0UV.js",
-  "./assets/autoscene-DyeNSnCI.js",
-  "./assets/index-CkGitsjl.js",
-  "./assets/index-DePzCex5.css",
+  "./assets/automation-Ccy8gwyN.js",
+  "./assets/autoscene-NsYft6Py.js",
+  "./assets/index-BmZtJ54w.css",
+  "./assets/index-QfNpnI0p.js",
   "./assets/inter-latin-400-normal-C38fXH4l.woff2",
   "./assets/inter-latin-500-normal-Cerq10X2.woff2",
   "./assets/inter-latin-600-normal-LgqL8muc.woff2",
   "./assets/inter-latin-700-normal-Yt3aPRUw.woff2",
-  "./assets/machinescene-CBlQeuj6.js",
-  "./assets/monde-ClmInTyU.js",
+  "./assets/machinescene-CcSwR1Cn.js",
+  "./assets/monde-B-_KZbLI.js",
   "./assets/music-CFkL0EcI.js",
-  "./assets/paquet-bulles-B2BIQQI1.js",
-  "./assets/paquet-mails-BfiCIO5c.js",
-  "./assets/paquet-openspace-CuoDOju6.js",
+  "./assets/paquet-bulles-CTfPep8d.js",
+  "./assets/paquet-mails-CaRg2pNc.js",
+  "./assets/paquet-openspace-CZt5LaMa.js",
   "./assets/pixelify-sans-latin-400-normal-DLrIX9QE.woff2",
   "./assets/pixelify-sans-latin-600-normal-Dd_Dy7u5.woff2",
   "./assets/pixelify-sans-latin-700-normal-D3Xxx3QE.woff2",
-  "./assets/portrait-KfucCoNe.js",
-  "./assets/textes-B-GEyC88.js",
+  "./assets/portrait-DjrHsQjv.js",
+  "./assets/textes-Dnq984_v.js",
   "./assets/vt323-latin-400-normal-wDgJuOC9.woff2",
   "./icons/apple-touch-icon.png",
   "./icons/icon-192.png",

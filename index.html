@@ -18,12 +18,12 @@
     <meta name="twitter:card" content="summary_large_image" />
     <title>An’doSim</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect x='4' y='1' width='8' height='1' fill='%232a2231'/%3E%3Crect x='3' y='2' width='10' height='7' fill='%23e6ad85'/%3E%3Crect x='3' y='8' width='10' height='3' fill='%23a59d93'/%3E%3Crect x='5' y='5' width='1' height='2' fill='%232a2231'/%3E%3Crect x='10' y='5' width='1' height='2' fill='%232a2231'/%3E%3Crect x='2' y='11' width='12' height='5' fill='%234f87c9'/%3E%3C/svg%3E" />
-    <script type="module" crossorigin src="./assets/index-CkGitsjl.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/textes-B-GEyC88.js">
-    <link rel="modulepreload" crossorigin href="./assets/monde-ClmInTyU.js">
-    <link rel="modulepreload" crossorigin href="./assets/automation-D48rn0UV.js">
-    <link rel="modulepreload" crossorigin href="./assets/portrait-KfucCoNe.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-DePzCex5.css">
+    <script type="module" crossorigin src="./assets/index-QfNpnI0p.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/textes-Dnq984_v.js">
+    <link rel="modulepreload" crossorigin href="./assets/monde-B-_KZbLI.js">
+    <link rel="modulepreload" crossorigin href="./assets/automation-Ccy8gwyN.js">
+    <link rel="modulepreload" crossorigin href="./assets/portrait-DjrHsQjv.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-BmZtJ54w.css">
   </head>
   <body>
     <div id="app">
@@ -177,6 +177,7 @@
             <ul id="end-stories" class="end-stories hidden"></ul>
             <div id="end-tickets" class="end-tickets hidden"></div>
             <div id="end-openspace" class="end-tickets end-openspace hidden"></div>
+            <div id="end-robots" class="end-tickets end-openspace end-robots hidden"></div>
             <ul id="end-adoption" class="end-adoption hidden" data-t-label="end.adoption"></ul>
             <p id="end-epilogue" class="end-epilogue"></p>
             <p id="end-joke" class="tip end-joke hidden" role="note"><b data-t="end.joke"></b><span id="end-joke-text"></span></p>
@@ -239,6 +240,7 @@
           <span class="objective-phone" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M1 2h10v3H8V4H4v1H1zM3 6h6v1h1v4H2V7h1z" /></svg><span id="objective-phone-state" data-t="objective.phone"></span></span>
           <span id="objective-text" class="objective-text"></span>
           <button id="objective-go" class="objective-go hidden" type="button" data-t="objective.go"></button>
+          <button id="objective-robot" class="objective-go objective-robot hidden" type="button"></button>
           <span id="objective-cook" class="objective-cook hidden" aria-hidden="true"><span id="objective-cook-fill"></span></span>
         </div>
         <button id="ring-banner" class="act act-answer ring-banner hidden" type="button">
@@ -270,6 +272,12 @@
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h10v10H1zm1 1v2h2V2zm3 0v2h5V2zM2 5v2h2V5zm3 0v2h5V5zM2 8v2h2V8zm3 0v2h5V8z" fill-rule="evenodd" /><path class="led" d="M6 6h3v1H6z" /></svg>
           <span class="act-text"><span class="act-label" data-t="act.studio"></span><small id="act-studio-sub" class="act-sub"></small></span>
           <span id="act-studio-badge" class="act-badge hidden"></span>
+          <span class="guide-tag" aria-hidden="true" data-t="act.touchHere"></span>
+        </button>
+        <button id="act-robots" class="act act-robots hidden" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M5 0h2v1H5zM3 1h6v4H3zM2 6h8v4H2zM0 6h1v3H0zM11 6h1v3h-1zM3 10h2v2H3zM7 10h2v2H7z" /><path class="led" d="M4 2h1v1H4zM7 2h1v1H7zM5 7h2v1H5z" /></svg>
+          <span class="act-text"><span id="act-robots-label" class="act-label"></span><small id="act-robots-sub" class="act-sub"></small></span>
+          <span id="act-robots-badge" class="act-badge hidden"></span>
           <span class="guide-tag" aria-hidden="true" data-t="act.touchHere"></span>
         </button>
         <button id="act-machine" class="act act-machine hidden" type="button">
@@ -358,8 +366,19 @@
         <button id="cc-close" class="win-close visit-close cc-close" type="button" data-t-label="card.close">✕</button>
         <div id="cc-body" class="cc-body"></div>
         <div class="phone-choices">
+          <button id="cc-robot" class="choice cc-robot hidden" type="button"></button>
           <button id="cc-go" class="choice primary cc-go" type="button" data-t="card.go"></button>
         </div>
+      </section>
+
+      <section id="robots" class="panel phone robots-panel hidden" role="dialog" aria-modal="false" aria-labelledby="rb-title">
+        <div class="rb-bar">
+          <span id="rb-title" class="rb-title"></span>
+          <span id="rb-points" class="st-points rb-points"></span>
+          <button id="rb-close" class="win-close visit-close rb-close" type="button">✕</button>
+        </div>
+        <div id="rb-body" class="cc-body rb-body"></div>
+        <div id="rb-foot" class="phone-choices rb-foot"></div>
       </section>
 
       <section id="mail" class="panel mail hidden" role="dialog" aria-modal="false" aria-labelledby="mail-title">
