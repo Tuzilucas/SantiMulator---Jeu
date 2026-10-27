@@ -1,4 +1,4 @@
-import{fK as u,fL as o,fM as l,fN as d}from"./textes-5U3iNJKk.js";const c=[{id:"martine-total-zero",category:"depannage",nature:"panne",sujet:"tableur",from:"martine",subject:"Total à zéro",apres:{juste:[{text:"Pour rappel : je compte à la main en attendant. J’en suis à 31."}],aCote:[{text:"Pour rappel, la colonne F fait toujours 0. Bernard dit toujours « ça arrive »."}]},body:`Bonjour Ando,
+import{fM as u,fN as o,fO as l,fP as d}from"./textes-B-GEyC88.js";const c=[{id:"martine-total-zero",category:"depannage",nature:"panne",sujet:"tableur",from:"martine",subject:"Total à zéro",apres:{juste:[{text:"Pour rappel : je compte à la main en attendant. J’en suis à 31."}],aCote:[{text:"Pour rappel, la colonne F fait toujours 0. Bernard dit toujours « ça arrive »."}]},body:`Bonjour Ando,
 
 Constat du jour :
 1. La colonne F additionne 48 montants.
