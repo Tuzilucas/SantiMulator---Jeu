@@ -14,6 +14,15 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 3.0 « Les robots » (27/10/2026)
+- Quand l'IA a tout automatisé, Ando se lance : il fabrique Robertino, un robot fait maison (une tour de PC, une boîte à biscuits pour tête, une fourchette en antenne), pièce par pièce sur son établi.
+- Au début, Robertino rate tout, et de façon drôle : il apporte le café à l'imprimante, salue le fauteuil vide, met du papier partout. Chaque pièce posée le rend meilleur.
+- Plus tard, on achète des robots en série : fiables, gris, numérotés, sans aucun charme. Ils prennent les pannes et les visites simples ; les idées, les bouderies et les promesses restent à Ando.
+- On choisit quel robot envoyer, avec son taux de ratés pour la tâche ; Ando rattrape les ratés lui-même.
+- Le bilan du soir raconte la journée des robots. Nouveaux sons : Robertino grince, parle avec l'accent d'Ando, et les robots du commerce font « bip ».
+- Sous le capot : le jeu se charge plus vite, les textes de l'open space ne se téléchargent qu'au moment utile, et les anciennes parties se reprennent toujours.
+- Corrections : deux fenêtres au plus le matin, un bilan honnête quand des messages n'ont pas été rappelés, le toast de midi à l'heure, les chiffres à la française.
+
 ### 2.1 « Première impression » (27/10/2026)
 - Ando parle plus varié : moins de tournures répétées, plus de questions et de répliques courtes, et des bulles qui réagissent à ce qui se passe (l'erreur à l'écran, l'appelant qui vient de raccrocher).
 - Son « ja » revient, mélangé à son franglais : « Ja l'ai faite », « Ai will back to faïve minoutes ».
