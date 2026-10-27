@@ -1,6 +1,6 @@
 # An'doSim — le jeu
 
-> « Cinq minoutes, ja arrrive. »
+> « Faïve minoutes, ai arrrive. »
 
 <p><img src="jaquette.png" alt="Jaquette d’An’doSim, face avant" width="45%"> <img src="jaquette-dos.png" alt="Jaquette d’An’doSim, dos" width="45%"></p>
 
@@ -13,6 +13,16 @@ Sur Android, ouvrez le lien dans Chrome, puis Menu ⋮ → « Installer l’appl
 Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pages.
 
 ## Notes de mise à jour
+
+### 2.0 « La vie de l'open space » (27/10/2026)
+- Ando parle maintenant un franglais approximatif avec l'accent italien : « Ai donte ondeurstende, ai will back to faïve minoutes. » Ses mails restent sans accent.
+- Les visites sont un vrai choix : trois réponses vraiment différentes (sérieuse, culottée, drôle), plus d'astuce qui donne la bonne ; on lit la fiche et le carnet du collègue.
+- Plusieurs demandes à la fois, et pas le temps de tout faire : les idées et les merci n'attendent pas, « je reviens » est une promesse, et une promesse oubliée se paie le lendemain matin.
+- Les collègues aidés rendent service (un café, un rappel pris pour Ando, un fichier relu, l'imprimante redémarrée) ; une bouderie annule le service.
+- Pannes d'imprimantes : deux imprimantes dans l'open space, une ou deux pannes par jour, et un coin qui râle si personne ne vient.
+- Pendant une visite, la vue cadre le collègue et Ando ; humeurs et demandes plus lisibles sur téléphone.
+- Le bilan du soir raconte l'open space : services rendus, promesses tenues ou rompues, pannes réparées.
+- Cagibi plus soigné : la valise d'Italie, le casque de la mine, le paillasson « CIAO ».
 
 ### 1.7 « Chaque fichier se paie » (22/10/2026)
 - Les fichiers d'Ando vivent chez les collègues : plus un fichier est bon, plus il a d'utilisateurs et plus il rapporte de réputation… mais plus il casse (lecture seule, formule cassée, données perdues).
