@@ -14,6 +14,20 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 5.0 « Le service » et « L'entreprise du futur » (28/10/2026)
+- **Le service** : avec un robot et assez de réputation, Ando devient chef de service. Il recrute des ingénieurs (Mireille, Yanis, Solène, Hervé, Inès, Baptiste), chacun avec son caractère et son tic, et leur confie les projets des autres services. Le CV exagère, la période d'essai dit la vérité ; un ingénieur surchargé finit par partir.
+- Ses « cinq minutes » deviennent celles de tout son service : promettre raccourcit un délai… tant que la promesse est tenue.
+- Les locaux du service : l'ancien cagibi et la salle de réunion, cloison abattue, six postes et un tableau des projets.
+- **L'entreprise du futur** : directeur technique, Ando voit l'entreprise traverser six époques de plus en plus folles. Chaque jour une action, à chaque époque une décision ; les notes de service et le courrier racontent vos choix. L'humour devient plus noir. Plusieurs fins vous attendent, et l'on peut continuer après. Une chose ne change jamais : la machine à café.
+- Musique des époques et des fins, décors qui changent d'époque en époque.
+- Nouvelle jaquette : la montagne de post-it.
+- Ando est plus vivant : nouvelle marche, attentes, gestes (la main levée à l'italienne pour « cinq minoutes »).
+- La caméra de l'open space ne saute plus.
+- Réglages du son complets : général, musique, effets, voix, sonnerie, ambiance, vibration.
+- Technologies de l'atelier : prix de base élevé, qui baisse avec la pratique jusqu'à les débloquer gratuitement ; tous les prix du jeu remis en ordre.
+- Démarrage plus léger : le jeu ne charge que ce qui sert à votre étape.
+- Le jeu est et restera 100 % gratuit.
+
 ### 3.0 « Les robots » (27/10/2026)
 - Quand l'IA a tout automatisé, Ando se lance : il fabrique Robertino, un robot fait maison (une tour de PC, une boîte à biscuits pour tête, une fourchette en antenne), pièce par pièce sur son établi.
 - Au début, Robertino rate tout, et de façon drôle : il apporte le café à l'imprimante, salue le fauteuil vide, met du papier partout. Chaque pièce posée le rend meilleur.
