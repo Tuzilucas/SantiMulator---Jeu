@@ -14,6 +14,12 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 5.2 « Finition » (28/10/2026)
+- L'écran titre vous rappelle où vous en êtes, du cagibi jusqu'aux fins, avec une petite phrase qui change selon votre avancement.
+- Ando revient à ses classiques : environ deux cents répliques réécrites autour de ses « faïve minoutes », de ses promesses pour demain et de son Italie.
+- Une petite clochette quand un ticket est réparé.
+- Contrôles renforcés : semaines jouées sur téléphones émulés (Android d'entrée de gamme, iPhone), mémoire suivie jour par jour, et une vérification complète avant chaque publication.
+
 ### 5.1 « Finitions du futur » (28/10/2026)
 - Dans l'entreprise du futur, Ando parle de la décision que vous venez de prendre, et chaque décision laisse sa trace dans le décor (une imprimante réparée avec un pansement, une couronne sur l'armoire B, une pancarte « CAFE »…).
 - Dès l'époque 4, l'horloge du bureau devient l'armoire B en visio, avec ses propres répliques.
