@@ -14,6 +14,9 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 5.2.1 (28/10/2026)
+- Ando parle plus à l'italienne : il dit surtout « ja » (« Ja arrrive », « Ja le fais demain ») ; « ai » ne reste que dans ses phrases franglaises (« Ai have », « Ai donte ondeurstende »).
+
 ### 5.2 « Finition » (28/10/2026)
 - L'écran titre vous rappelle où vous en êtes, du cagibi jusqu'aux fins, avec une petite phrase qui change selon votre avancement.
 - Ando revient à ses classiques : environ deux cents répliques réécrites autour de ses « faïve minoutes », de ses promesses pour demain et de son Italie.
