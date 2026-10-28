@@ -14,6 +14,13 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 5.1 « Finitions du futur » (28/10/2026)
+- Dans l'entreprise du futur, Ando parle de la décision que vous venez de prendre, et chaque décision laisse sa trace dans le décor (une imprimante réparée avec un pansement, une couronne sur l'armoire B, une pancarte « CAFE »…).
+- Dès l'époque 4, l'horloge du bureau devient l'armoire B en visio, avec ses propres répliques.
+- Livrer vite ou livrer solide redevient un vrai choix : un fichier solide rapporte plus longtemps, et chaque souci coûte un peu de confiance.
+- En paysage et sur petit téléphone : plus aucun texte coupé, les décisions du futur se lisent en entier, les appels longs et les visites passent sur deux colonnes.
+- Correction : une scène d'une ancienne partie pouvait s'ouvrir après un nouveau départ.
+
 ### 5.0 « Le service » et « L'entreprise du futur » (28/10/2026)
 - **Le service** : avec un robot et assez de réputation, Ando devient chef de service. Il recrute des ingénieurs (Mireille, Yanis, Solène, Hervé, Inès, Baptiste), chacun avec son caractère et son tic, et leur confie les projets des autres services. Le CV exagère, la période d'essai dit la vérité ; un ingénieur surchargé finit par partir.
 - Ses « cinq minutes » deviennent celles de tout son service : promettre raccourcit un délai… tant que la promesse est tenue.
