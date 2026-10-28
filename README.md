@@ -14,6 +14,12 @@ Ce dépôt ne contient que la version compilée du jeu, publiée avec GitHub Pag
 
 ## Notes de mise à jour
 
+### 5.2.2 (28/10/2026)
+- Jeu complet contrôlé de bout en bout, version par version : plus aucun défaut connu ouvert.
+- Corrigé : en rechargeant la page en plein appel, le téléphone restait caché derrière le résultat de l'atelier.
+- Corrigé : en paysage, la signature d'Odile se place sous la note qu'elle signe.
+- Couleurs de l'interface rangées sans changement visible.
+
 ### 5.2.1 (28/10/2026)
 - Ando parle plus à l'italienne : il dit surtout « ja » (« Ja arrrive », « Ja le fais demain ») ; « ai » ne reste que dans ses phrases franglaises (« Ai have », « Ai donte ondeurstende »).
 
