@@ -18,12 +18,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <title>An’doSim</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect x='4' y='1' width='8' height='1' fill='%232a2231'/%3E%3Crect x='3' y='2' width='10' height='7' fill='%23e6ad85'/%3E%3Crect x='3' y='8' width='10' height='3' fill='%23a59d93'/%3E%3Crect x='5' y='5' width='1' height='2' fill='%232a2231'/%3E%3Crect x='10' y='5' width='1' height='2' fill='%232a2231'/%3E%3Crect x='2' y='11' width='12' height='5' fill='%234f87c9'/%3E%3C/svg%3E" />
-    <script type="module" crossorigin src="./assets/index-QfNpnI0p.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/textes-Dnq984_v.js">
-    <link rel="modulepreload" crossorigin href="./assets/monde-B-_KZbLI.js">
-    <link rel="modulepreload" crossorigin href="./assets/automation-Ccy8gwyN.js">
-    <link rel="modulepreload" crossorigin href="./assets/portrait-DjrHsQjv.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-BmZtJ54w.css">
+    <script type="module" crossorigin src="./assets/index-BjC_252Z.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/textes-DuewBOfZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/monde-DELzq6wt.js">
+    <link rel="modulepreload" crossorigin href="./assets/automation-8b2ZocDZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendredi-BZX0rInm.js">
+    <link rel="modulepreload" crossorigin href="./assets/portrait-CHrCnIDB.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-Dd5Wvtmp.css">
   </head>
   <body>
     <div id="app">
@@ -137,9 +138,10 @@
                   <button id="btn-restart-no" class="btn" type="button" data-t="pause.restart.no"></button>
                 </div>
               </div>
-              <button id="btn-music" class="btn btn-toggle" type="button" aria-pressed="true">
-                <span data-t="pause.music"></span><span class="toggle-state" aria-hidden="true"></span>
+              <button id="btn-sound-settings" class="btn btn-disclosure" type="button" aria-expanded="false" aria-controls="sound-settings">
+                <span data-t="pause.son"></span><span class="disclosure-mark" aria-hidden="true"></span>
               </button>
+              <div id="sound-settings" class="sound-settings hidden" role="group" aria-labelledby="btn-sound-settings"></div>
               <button id="btn-aid" class="btn btn-toggle" type="button" aria-pressed="true">
                 <span data-t="pause.aid"></span><span class="toggle-state" aria-hidden="true"></span>
               </button>
@@ -178,6 +180,7 @@
             <div id="end-tickets" class="end-tickets hidden"></div>
             <div id="end-openspace" class="end-tickets end-openspace hidden"></div>
             <div id="end-robots" class="end-tickets end-openspace end-robots hidden"></div>
+            <div id="end-service" class="end-tickets end-openspace end-service hidden"></div>
             <ul id="end-adoption" class="end-adoption hidden" data-t-label="end.adoption"></ul>
             <p id="end-epilogue" class="end-epilogue"></p>
             <p id="end-joke" class="tip end-joke hidden" role="note"><b data-t="end.joke"></b><span id="end-joke-text"></span></p>
@@ -280,6 +283,12 @@
           <span id="act-robots-badge" class="act-badge hidden"></span>
           <span class="guide-tag" aria-hidden="true" data-t="act.touchHere"></span>
         </button>
+        <button id="act-service" class="act act-service hidden" type="button">
+          <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h10v6H1zm1 1v4h8V2zM3 8h2v1H3zM7 8h2v1H7zM2 9h3v2H2zM7 9h3v2H7z" fill-rule="evenodd" /><path class="led" d="M3 3h2v1H3zM3 4h4v1H3z" /></svg>
+          <span class="act-text"><span id="act-service-label" class="act-label"></span><small id="act-service-sub" class="act-sub"></small></span>
+          <span id="act-service-badge" class="act-badge hidden"></span>
+          <span class="guide-tag" aria-hidden="true" data-t="act.touchHere"></span>
+        </button>
         <button id="act-machine" class="act act-machine hidden" type="button">
           <svg class="act-icon" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 3h10v7H1zm1 1v3h8V4zm1 4v1h6V8z" fill-rule="evenodd" /><path class="led" d="M3 5h2v1H3zM7 5h2v1H7z" /></svg>
           <span class="act-text"><span class="act-label" data-t="act.machine"></span><small id="act-machine-sub" class="act-sub"></small></span>
@@ -379,6 +388,18 @@
         </div>
         <div id="rb-body" class="cc-body rb-body"></div>
         <div id="rb-foot" class="phone-choices rb-foot"></div>
+      </section>
+
+      <section id="service" class="panel phone service-panel hidden" role="dialog" aria-modal="false" aria-labelledby="sv-title">
+        <div class="rb-bar sv-bar">
+          <span id="sv-title" class="rb-title sv-title"></span>
+          <span id="sv-grade" class="sv-grade"></span>
+          <button id="sv-close" class="win-close visit-close rb-close" type="button">✕</button>
+        </div>
+        <div id="sv-head" class="sv-head"></div>
+        <div id="sv-tabs" class="sv-tabs" role="tablist"></div>
+        <div id="sv-body" class="cc-body sv-body"></div>
+        <div id="sv-foot" class="phone-choices sv-foot"></div>
       </section>
 
       <section id="mail" class="panel mail hidden" role="dialog" aria-modal="false" aria-labelledby="mail-title">
